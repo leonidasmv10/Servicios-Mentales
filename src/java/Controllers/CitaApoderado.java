@@ -8,10 +8,14 @@ package Controllers;
 import Entidades.Apoderado;
 import Entidades.Paciente;
 import Models.ApoderadoDAO;
+import Models.CitaDAO;
 import Models.PacienteDAO;
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,48 +40,29 @@ public class CitaApoderado extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CitaApoderado</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CitaApoderado at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        response.setContentType("application/json;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        try {
+            JsonObject gson = new JsonObject();
+            gson.add("datos", new CitaDAO().obtenerListaJSON());
+            response.getWriter().write(gson.toString());
+        } catch (Exception ex) {
+            Logger.getLogger(CitaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        if (request.getParameter("btnAgregarCita") != null) {
 
-           
-
-            try {
-                
-               
-                
-                request.getRequestDispatcher("view/Apoderado/RegistrarCita.jsp").forward(request, response);
-            } catch (Exception e) {
-                out.print(e);
-            }
-        }
-        
-        
-        
     }
 
     /**

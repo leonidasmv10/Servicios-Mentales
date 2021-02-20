@@ -51,6 +51,7 @@ insert into Anuncio values (default,'Titulo 2', 'Descripion 2','Novedad','v',1);
 insert into Anuncio values (default,'Titulo 3', 'Descripion 3','Anuncio','v',1);
 insert into Anuncio values (default,'Titulo 4', 'Descripion 4','Novedad','o',1);
 insert into Anuncio values (default,'Consultas', 'Oferta 4','Novedad','o',1);
+insert into Anuncio values (default,'Goku vs Vegeta', 'En Disneylandia','Novedad','o',1);
 
 select * from Anuncio
 
@@ -66,7 +67,6 @@ INSERT INTO Apoderado (apoNombres, apoApellidos, apoUsuario, apoPasswd, apoEstad
 
 select * from Apoderado
 
-drop table Apoderado
 
 select count(*) as find from Apoderado where apoUsuario='code' and apoPasswd='code'
 
@@ -80,13 +80,8 @@ select * from Paciente
 
 select * from Paciente where pacDNI = '78199102'
 
-drop table Paciente
 
 select idPaciente from Apoderado where apoUsuario = 'code'
-
-
-
-
 
 update Paciente set pacNombres='', pacApellidos='', pacDNI='',pacFechaNac='', pacSexo='',
 pacDireccion='',pacReligion='',pacEstadoCivil='',pacNivelAcademico='' where 
@@ -106,8 +101,6 @@ p.pacNombres='Luis', p.pacApellidos='Ye', p.pacDNI='78199101',p.pacFechaNac='202
 p.pacDireccion='AV',p.pacReligion='D',p.pacEstadoCivil='D',p.pacNivelAcademico='D',a.apoCel='123456',a.apoCelEmergencia='987',a.apoCorreo='yordym.200@com'
 WHERE a.idApoderado=1
 
-
-
 CREATE TABLE Cita(
     idCita int auto_increment PRIMARY KEY,
     citMotivo varchar(200) ,
@@ -125,7 +118,7 @@ insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','0
 
 select * from Cita
 
-
+update Cita set idDoctor = 1 where idCita=1
 
 CREATE TABLE Doctor(
 
@@ -142,6 +135,7 @@ CREATE TABLE Doctor(
     docPasswd varchar(200) ,
     docCMP varchar(50) ,
     docEstadoCuenta bool
+    
 );
 
 

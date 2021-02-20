@@ -1,11 +1,3 @@
-
-<%@page import="Entidades.Apoderado"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.LinkedList"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page import="Entidades.Anuncio"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
 
@@ -36,7 +28,7 @@
             <!--Barra de navegacion-->
             <nav class="navbar navbar-expand-lg" style="background-color: rgb(29, 140, 184);">
                 <a class="navbar-brand" style="color: white;" href="Home.html">
-                    <img src="view/assets/imgs/frm_home.png" alt="logo" style="align-items: center; height:70px; width:55px">
+                    <img src="../assets/imgs/frm_home.png" alt="logo" style="align-items: center; height:70px; width:55px">
                     <i><strong>Servicios Mentales</strong></i>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -49,23 +41,21 @@
 
                     <li class="nav-item active">
                         <a style="color: white;" class="nav-link" href="view/Apoderado/Home.jsp">
-                            <img src="view/assets/imgs/icono_home.png"  style="width:30px">
+                            <img src="../assets/imgs/icono_home.png"  style="width:30px">
                             Inicio
                         </a>
                     </li>
                     <li class="nav-item active">
                         <a style="color: white;" class="nav-link" name ="datosFiliacion" href="view/Apoderado/DatosDeAfiliacion.jsp">
-                            <img src="view/assets/imgs/icono_paciente.png" style="width:30px">
+                            <img src="../assets/imgs/icono_paciente.png" style="width:30px">
                             Datos de filiación
                         </a>
-                        <input type="submit" name="btnDatos">
                     </li>
                     <li class="nav-item ">
-                        <a style="color: white;" class="nav-link" href="view/Apoderado/Cita.jsp">
-                            <img src="view/assets/imgs/icono_citas.png" style="width:30px">
+                        <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Cita.jsp">
+                            <img src="../assets/imgs/icono_citas.png" style="width:30px">
                             Citas
                         </a>
-                        <input type="submit" name="btnCita" value="Cita">
                     </li>
                     &nbsp;
                     &nbsp;
@@ -75,7 +65,7 @@
                     &nbsp;
                     <li class="nav-item ">
                         <a href="view/Apoderado/Login.jsp" onclick="LogOut()" style="color: white;" class="nav-link">
-                            <img style="filter: invert(120); align-items: center; height:25px; width:25px" src="view/assets/imgs/loguot.png">
+                            <img style="filter: invert(120); align-items: center; height:25px; width:25px" src="../assets/imgs/loguot.png">
                             <strong>Salir</strong></a>
                     </li>
                 </ul>
@@ -95,11 +85,12 @@
             <div style="align-items: center; align-self: center; align-content: center; text-align: center;"> 
 
 
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <table id="table_main" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>Titulo</th>
                             <th>Descripción</th>
+                            <th>Acción</th>
 
                         </tr>
                     </thead>
@@ -108,10 +99,11 @@
                     </tbody>
 
                 </table>
-                <br>
 
             </div>
+            
         </div>
+        
         <br>
         <br>
 
@@ -167,6 +159,10 @@
                 </tbody>
             </table>
         </div>
+
+
+
+
 
 
 

@@ -2,11 +2,6 @@
 <%@page import="Entidades.Cita"%>
 <%@page import="java.util.LinkedList"%>
 
-<%
-    LinkedList<Cita> lista = (LinkedList) request.getSession().getAttribute("citas");
-    Iterator<Cita> it = lista.iterator();
-%>
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -18,7 +13,9 @@
         <link rel="stylesheet" href="view/assets/css/style.css">
         <title>.: CITAS :.</title>
         <link rel="shortcut icon" href="view/assets/imgs/icono_title.png">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
     </head>
     <body>
 
@@ -73,7 +70,7 @@
     <div style="text-align: center; align-items: center;">
         <br>
         <br>
-        <img src="view/assets/imgs/frm_citas.png" alt="Citas" width="10%">
+        <img src="../assets/imgs/frm_citas.png" alt="Citas" width="10%">
         <br>
         <br>
         <h3 style="color:rgb(29, 140, 184);"><strong>CITAS</strong></h3>
@@ -100,149 +97,127 @@
             &nbsp;
             &nbsp;
             &nbsp;
-            <input type="submit" value="Agregar Cita" class="btn btn-warning" name="btnAgregarCita">
             <a class="btn btn-warning" href="view/Apoderado/RegistrarCita.jsp"><strong>+ Agregar cita</strong></a>
         </div>
     </div>
     <br>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th scope="col">Médico Tratante</th>
-                <th scope="col"Fecha</th>
-                <th scope="col">Tipo de cita</th>
-                <th scope="col">Estado</th>
-
-            </tr>
-        </thead>
-        <tbody>
-
-            <%while (it.hasNext()) {
-                    Cita cita = it.next();%>
-            <tr>
-
-                <th scope="row"><%= cita.getIdCita()%></th>
-                <td>Medico</td>
-                <td><%= cita.getMotivo()%></td>
-                <td><%= cita.getFecha()%></td>
-
-                <%
-                    switch (cita.getEstado()) {
-                        case "Reservado":
-                            out.print("<td>Reservado</td>");
-                            break;
-                        case "Reservado N":
-                            out.print("<td>Pendiente</td>");
-                            break;
-                        case "Atendido":
-                            out.print("<td>Atendido</td>");
-                            break;
-
-                    }
-                %>
+    
+    
+    <!--Contenido-->
+        <div class="container" style="align-items: center; align-content: center;">
+            
+            <div style="align-items: center; align-self: center; align-content: center; text-align: center;"> 
 
 
-                <td><%= cita.getHorario()%></td>
-                <%
-                    switch (cita.getEstado()) {
-                        case "Reservado":
-                            out.print("<td><input type=\"submit\" value=\"Ver Factura\"></td>");
-                            break;
-                        case "Reservado N":
-                            out.print("<td><input type=\"submit\" value=\"Pagar\"></td>");
-                            break;
-                        case "Atendido":
-                            out.print("<td><input type=\"submit\" value=\"Ver Resultados\"></td>");
-                            break;
-                    }
-                %>
-            </tr>
-            <%}%>  
+                <table id="table_main" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Médico Tratante</th>
+                            <th>Fecha</th>
+                            <th>Horario</th>
+                            <th>Tipo de cita</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+            
+        </div>
 
 
-        </tbody>
-    </table>
 
 
-<center>
-</center>
-<br>
-<br>
-
-<!--Footer-->
-<div class="card bg-primary" >
-    <table class="container">
-        <tbody>
-            <tr>
-                <td>
-                    <div class="card-body" style="color: white;">
-                        <h5 class="card-title ">Correos</h5>
-                        <p class="card-text ">
-                        <ul>
-                            <li>serviciosmentales@outlook.com</li>
-                            <li>serviciosmentales@gmail.com</li>
-                        </ul>
-                        </p>
-                    </div>
-                </td>
-                <td>
-                    <div class="card-body" style="color: white;">
-                        <h5 class="card-title ">Teléfonos</h5>
-                        <p class="card-text ">
-                        <ul>
-                            <li>985 245 689</li>
-                            <li>976 987 423</li>
-                        </ul>                                        
-                        </p>
-                    </div>
-                </td>
-                <td>
-                    <div class="card-body" style="color: white;">
-                        <h5 class="card-title ">Servicios</h5>
-                        <p class="card-text ">
-                        <ul>
-                            <li>Consulta psiquiátrica</li>
-                            <li>Certificado médico</li>
-                        </ul>
-                        </p>
-                    </div>
-                </td>
-            </tr> 
-            <tr> 
-                <td></td>                                                  
-                <td>
-                    <div class="row card-text">
-                        <div class="col-sm-12">
-                            <i style="color: white; text-align: center;">Copyright © Servicios Mentales 2020</i>
+    <!--Footer-->
+    <div class="card bg-primary" >
+        <table class="container">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="card-body" style="color: white;">
+                            <h5 class="card-title ">Correos</h5>
+                            <p class="card-text ">
+                            <ul>
+                                <li>serviciosmentales@outlook.com</li>
+                                <li>serviciosmentales@gmail.com</li>
+                            </ul>
+                            </p>
                         </div>
-                    </div>
-                </td>
-            </tr>                           
-        </tbody>
-    </table>
-</div>
+                    </td>
+                    <td>
+                        <div class="card-body" style="color: white;">
+                            <h5 class="card-title ">Teléfonos</h5>
+                            <p class="card-text ">
+                            <ul>
+                                <li>985 245 689</li>
+                                <li>976 987 423</li>
+                            </ul>                                        
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card-body" style="color: white;">
+                            <h5 class="card-title ">Servicios</h5>
+                            <p class="card-text ">
+                            <ul>
+                                <li>Consulta psiquiátrica</li>
+                                <li>Certificado médico</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </td>
+                </tr> 
+                <tr> 
+                    <td></td>                                                  
+                    <td>
+                        <div class="row card-text">
+                            <div class="col-sm-12">
+                                <i style="color: white; text-align: center;">Copyright © Servicios Mentales 2020</i>
+                            </div>
+                        </div>
+                    </td>
+                </tr>                           
+            </tbody>
+        </table>
+    </div>
 
-<script>
-    // Write on keyup event of keyword input element
-    $(document).ready(function () {
-        $("#search").keyup(function () {
-            _this = this;
-            // Show only matching TR, hide rest of them
-            $.each($("#mytable tbody tr"), function () {
-                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                    $(this).hide();
-                else
-                    $(this).show();
+    <script>
+        // Write on keyup event of keyword input element
+        $(document).ready(function () {
+            $("#search").keyup(function () {
+                _this = this;
+                // Show only matching TR, hide rest of them
+                $.each($("#table_main tbody tr"), function () {
+                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
             });
         });
-    });
-</script>
+    </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+    <script src="../assets/scripts/Cita.js" type="text/javascript"></script>
 
 </body>
 </html>
