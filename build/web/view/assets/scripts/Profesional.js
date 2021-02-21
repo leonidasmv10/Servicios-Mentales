@@ -27,7 +27,6 @@ class Profesional
 
         var usuario = $("#usuario").val();
         var password = $("#password").val();
-        var profesional;
 
 
         $.ajax({

@@ -31,14 +31,14 @@
             <form action="Login.jsp" method="post">
               <div class="form-group">
                 <label for="email">Usuario</label>
-                <input  required type="text" name="usuario" id="idUsuario" class="form-control" placeholder="Ingrese su nombre de usuario">
+                <input  required type="text" id="usuario" class="form-control" placeholder="Ingrese su nombre de usuario">
               </div>
               <div class="form-group mb-4">
                 <label for="password">Contraseña</label>
-                <input required type="password" name="password" id="password" class="form-control" placeholder="Ingrese su contraseña">
+                <input required type="password"  id="password" class="form-control" placeholder="Ingrese su contraseña">
               </div>
               <br>
-              <input name="btnIngresar" id="login" type="submit" style="padding: 10px 17px; background-color: rgb(29, 140, 184); border-radius: 0; font-size: 15px; font-weight: bold; color: #fff; margin-bottom: 14px;" value="Ingresar">
+              <input id="btnIngresar" type="submit" style="padding: 10px 17px; background-color: rgb(29, 140, 184); border-radius: 0; font-size: 15px; font-weight: bold; color: #fff; margin-bottom: 14px;" value="Ingresar">
             </form>            
           </div>
         </div>
@@ -48,6 +48,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../assets/scripts/Trabajador.js" type="text/javascript"></script>
 </body>
 </html>
 

@@ -53,8 +53,7 @@ class Administrador
                     //console.log(this.administrador);
                     //alert(Number(administrador.idApoderado));
 
-                    //window.location = "http://localhost:8080/Servicios_Mentales/view/Administrador/Home.jsp";
-
+                    window.location = "http://localhost:8080/Servicios_Mentales/view/Administrador/Home.jsp";
 
                 }
             }

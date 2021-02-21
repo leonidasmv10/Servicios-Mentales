@@ -65,7 +65,6 @@ class Apoderado
 
         var usuario = $("#usuario").val();
         var password = $("#password").val();
-        var apoderado;
 
         $.ajax({
             url: 'http://localhost:8080/Servicios_Mentales/LoginApoderado',

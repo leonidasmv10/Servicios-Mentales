@@ -38,11 +38,11 @@
                     <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"><strong>Ingresar</strong></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
 
-                        <a class="btn dropdown-item" href="view/Apoderado/Login.jsp">Apoderado</a>
+                        <a class="btn dropdown-item" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Login.jsp">Apoderado</a>
                         <input class="btn dropdown-divider">
                         <a class="btn dropdown-item" href="http://localhost:8080/Servicios_Mentales/view/Administrador/Login.jsp">Administrador</a>
                         <a class="btn dropdown-item" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Login.jsp">Profesional</a>
-                        <a class="btn dropdown-item">Trabajador</a>
+                        <a class="btn dropdown-item" href="http://localhost:8080/Servicios_Mentales/view/Trabajador/Login.jsp">Trabajador</a>
 
                     </div>
 
