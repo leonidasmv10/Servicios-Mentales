@@ -97,7 +97,7 @@
             &nbsp;
             &nbsp;
             &nbsp;
-            <a class="btn btn-warning" href="view/Apoderado/RegistrarCita.jsp"><strong>+ Agregar cita</strong></a>
+            <a class="btn btn-warning" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/RegistrarCita.jsp"><strong>+ Agregar cita</strong></a>
         </div>
     </div>
     <br>
@@ -130,9 +130,6 @@
             </div>
             
         </div>
-
-
-
 
     <!--Footer-->
     <div class="card bg-primary" >

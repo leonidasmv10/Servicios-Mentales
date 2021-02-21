@@ -9,14 +9,19 @@ import Entidades.Apoderado;
 import Entidades.Paciente;
 import Models.ApoderadoDAO;
 import Models.PacienteDAO;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -54,7 +59,7 @@ public class RegistrarDatosDeAfiliacion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**
@@ -69,40 +74,66 @@ public class RegistrarDatosDeAfiliacion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        if (request.getParameter("botonRegistrar") != null) {
+        try {
+            //String jsonA = request.getParameter("apoderado");
+           
+            String nombres = request.getParameter("nombres");
+            String apellidos = request.getParameter("apellidos");
+            String dni = request.getParameter("dni");
+            String sexo = request.getParameter("sexo");
+            String fechaDeNacimiento = request.getParameter("fechaDeNacimiento");
+            String direccion = request.getParameter("direccion");
+            String religion = request.getParameter("religion");
+            String estadoCivil = request.getParameter("estadoCivil");
+            String nivelAcademico = request.getParameter("nivelAcademico");
 
+            String celular = request.getParameter("celular");
+            String celularEmergencia = request.getParameter("celularEmergencia");
+            String correo = request.getParameter("correo");
+
+            //Apoderado apoderado = new Gson().fromJson(jsonA, Apoderado.class);
+            //Paciente paciente = new Gson().fromJson(jsonP, Paciente.class);
             Paciente paciente = new Paciente();
+            
+            paciente.setNombres(nombres);
+            paciente.setApellidos(apellidos);
+            paciente.setDni(dni);
+            paciente.setFechaDeNacimiento(fechaDeNacimiento);
+            paciente.setReligion(religion);
+            paciente.setSexo(sexo);
+            paciente.setDireccion(direccion);
+            paciente.setEstadoCivil(estadoCivil);
+            paciente.setNivelAcademico(nivelAcademico);
+            
+            Apoderado apoderado = new Apoderado();
+            apoderado.setCelular(celular);
+            apoderado.setCelularEmergencia(celularEmergencia);
+            apoderado.setCorreo(correo);
 
-            Apoderado apoderado = (Apoderado) request.getSession().getAttribute("apoderado");
+            HttpSession sesion = request.getSession();
 
-            paciente.setNombres(request.getParameter("nombreT").toString());
-            paciente.setApellidos(request.getParameter("apellidosT").toString());
-            paciente.setDni(request.getParameter("dniT").toString());
-            paciente.setSexo(request.getParameter("sexoT").toString());
-            paciente.setFechaDeNacimiento(request.getParameter("fechaNacT").toString());
-            paciente.setDireccion(request.getParameter("direccionT").toString());
-            apoderado.setCelular(request.getParameter("celularT").toString());
-            apoderado.setCelularEmergencia(request.getParameter("celEmergenciaT").toString());
-            apoderado.setCorreo(request.getParameter("correoT").toString());
-            paciente.setReligion(request.getParameter("religionT").toString());
-            paciente.setEstadoCivil(request.getParameter("estadoCivilT").toString());
-            paciente.setNivelAcademico(request.getParameter("nivelAcademicoT").toString());
+            new PacienteDAO().insertar(paciente);
+            
+            int idApoderado = (int) sesion.getAttribute("idApoderado");           
+            int idPaciente = new PacienteDAO().obtenerPorDni(paciente.getDni()).getIdPaciente();
 
-            try {
+            apoderado.setIdPaciente(idPaciente);
+            apoderado.setIdApoderado(idApoderado);
 
-                new PacienteDAO().insertar(paciente);
+            new ApoderadoDAO().insertarPaciente(apoderado);
+            new ApoderadoDAO().modificarDatosDeAfiliacion(paciente, apoderado);
 
-                int idPaciente = new PacienteDAO().obtenerPorDni(paciente.getDni()).getIdPaciente();
-                apoderado.setIdPaciente(idPaciente);
-                request.getSession().setAttribute("idPaciente", idPaciente);
-
-                out.print("ID: " + idPaciente);
-
-                new ApoderadoDAO().insertarPaciente(apoderado);
-                request.getRequestDispatcher("view/Apoderado/Home.jsp").forward(request, response);
-            } catch (Exception e) {
-                out.print(e);
-            }
+            String JSON = new Gson().toJson(paciente);
+            response.getWriter().write(JSON);
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegistrarDatosDeAfiliacion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(RegistrarDatosDeAfiliacion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(RegistrarDatosDeAfiliacion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistrarDatosDeAfiliacion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

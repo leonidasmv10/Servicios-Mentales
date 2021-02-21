@@ -33,6 +33,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -52,13 +53,13 @@ public class HomeApoderado extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
         try {
 
             JsonObject gson = new JsonObject();
             gson.add("datos", new AnuncioDAO().obtenerListaJSON());
             response.getWriter().write(gson.toString());
-            
+
         } catch (Exception ex) {
             Logger.getLogger(ApoderadoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

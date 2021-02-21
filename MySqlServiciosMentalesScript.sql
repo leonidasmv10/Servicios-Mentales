@@ -67,6 +67,8 @@ INSERT INTO Apoderado (apoNombres, apoApellidos, apoUsuario, apoPasswd, apoEstad
 
 select * from Apoderado
 
+select * from Apoderado where idApoderado=3
+
 
 select count(*) as find from Apoderado where apoUsuario='code' and apoPasswd='code'
 
@@ -116,27 +118,27 @@ insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','0
 insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Reservado N');
 insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Atendido');
 
+
+insert into Cita(citMotivo,citFecha,citEstado,citEstado,idDoctor) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Atendido');
+
 select * from Cita
 
 update Cita set idDoctor = 1 where idCita=1
 
-CREATE TABLE Doctor(
 
-    idDoctor int auto_increment PRIMARY KEY,
-    docNombres varchar(100),
-    docApellidos varchar(100) ,
-    docFechaNac date ,
-    docDNI char(8) ,
-    docSexo char(1) ,
-    docDireccion varchar(200) ,
-    docCorreo varchar(100) ,
-    docCel varchar(50) ,
-    docUsuario varchar(50) ,
-    docPasswd varchar(200) ,
-    docCMP varchar(50) ,
-    docEstadoCuenta bool
-    
+CREATE TABLE Administrador(
+	idAdministrador int auto_increment PRIMARY KEY,
+	admUsuario varchar(50) NOT NULL UNIQUE,
+	admPasswd varchar(200) NOT NULL UNIQUE
 );
 
+insert into Administrador VALUES(default,'admin','admin');
+insert into Administrador VALUES(default,'qweqwe','qweqwe');
+
+select * from Administrador;
+
+select count(*) from Administrador where admUsuario='admin' and admPasswd='admin';
+
+select * from Administrador where admUsuario='admin';
 
     

@@ -40,13 +40,13 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item active">
-                        <a style="color: white;" class="nav-link" href="view/Apoderado/Home.jsp">
+                        <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
                             <img src="../assets/imgs/icono_home.png"  style="width:30px">
                             Inicio
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a style="color: white;" class="nav-link" name ="datosFiliacion" href="view/Apoderado/DatosDeAfiliacion.jsp">
+                        <a style="color: white;" class="nav-link" name ="datosFiliacion" id="idDatosDeAfiliacion" href="">
                             <img src="../assets/imgs/icono_paciente.png" style="width:30px">
                             Datos de filiación
                         </a>
@@ -141,6 +141,7 @@
                                 <ul>
                                     <li>Consulta psiquiátrica</li>
                                     <li>Certificado médico</li>
+                                    
                                 </ul>
                                 </p>
                             </div>
@@ -161,12 +162,7 @@
         </div>
 
 
-
-
-
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
@@ -182,6 +178,6 @@
         <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
 
         <script src="../assets/scripts/Anuncio.js" type="text/javascript"></script>
-
+        <script src="../assets/scripts/Apoderado.js" type="text/javascript"></script>
     </body>
 </html>

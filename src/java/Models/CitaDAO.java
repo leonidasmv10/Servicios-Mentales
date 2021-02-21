@@ -13,8 +13,27 @@ import static java.lang.System.out;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CitaDAO implements ICitaDAO {
+    
+    
+     public void insertar(Cita cita) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        try {
+
+            /*String consultaSQL = String.format("INSERT INTO Apoderado (apoNombres, apoApellidos, apoUsuario, apoPasswd, apoEstadoCuenta) VALUES('%s','%s','%s','%s','A')",
+                    apoderado.getNombres(), apoderado.getApellidos(), apoderado.getUsuario(), apoderado.getPassword());
+*/
+            GestorSQL.Instance().abrirConexion();
+            GestorSQL.Instance().ejecutarConsulta("", false);
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CitaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public LinkedList<Cita> obtenerLista() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 

@@ -83,6 +83,10 @@ public class LoginApoderado extends HttpServlet {
                 Apoderado apoderado = new ApoderadoDAO().obtener(usuario);
                 String JSON = new Gson().toJson(apoderado);
                 response.getWriter().write(JSON);
+
+                HttpSession sesion = request.getSession();             
+                sesion.setAttribute("idApoderado",apoderado.getIdApoderado());
+
             } else {
                 response.getWriter().write("NULL");
             }

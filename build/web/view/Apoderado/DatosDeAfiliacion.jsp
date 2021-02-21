@@ -76,7 +76,13 @@
                 <td style="width: 25%;">
                     <label>Nombre(s): </label>
                     <h5>
-                        <i>${paciente.getNombres()}</i>
+                        
+                       
+                        <label id="lNombre"> GAA</label>
+                        <span id="idNombre">
+                             
+                        </span>
+                        
                     </h5>
                 </td>
                 <td style="width: 25%;">
@@ -218,5 +224,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    
+    <script src="../assets/scripts/Apoderado.js" type="text/javascript"></script>
+    <script src="../assets/scripts/Paciente.js" type="text/javascript"></script>
 </body>
 </html>

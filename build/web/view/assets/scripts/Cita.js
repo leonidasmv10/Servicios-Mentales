@@ -6,6 +6,29 @@ $(document).ready(function () {
 var Cita = function () {
 
     return {
+        
+        guardar: function () {
+
+            var obj = {
+                id: $("#hdnIdNombres").val(),
+                motivo: $("#idMotivo").val(),
+                fecha: $("#idFechaCita").val(),
+                idDoctor: $("#idMedico").val(),             
+            };
+
+            $.ajax({
+                url: 'http://localhost:8080/Servicios_Mentales/RegistrarCita',
+                data: {
+                    apoderado: JSON.stringify(obj)
+                },
+                method: 'POST',
+                success: function (data) {
+                    var ap = JSON.parse(data);
+                    console.log(ap);
+                    alert(ap);
+                }
+            });
+        },      
 
         listar: function () {
             $("#table_main").DataTable({

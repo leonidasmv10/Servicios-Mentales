@@ -10,7 +10,7 @@ package Entidades;
  * @author yordy
  */
 public class Apoderado {
-    
+
     private int idApoderado;
     private String nombres;
     private String apellidos;
@@ -28,9 +28,9 @@ public class Apoderado {
         this.usuario = usuario;
         this.password = password;
     }
-    
+
     public Apoderado() {
-        
+
     }
 
     public void setIdApoderado(int idApoderado) {
@@ -113,6 +113,4 @@ public class Apoderado {
         return correo;
     }
 
-    
-    
 }

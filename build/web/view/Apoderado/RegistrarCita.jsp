@@ -78,11 +78,12 @@
                             <select name="motivo" id="idMotivo" class="form-control">
                                 <option value="1">Consulta</option>
                                 <option value="2">Certificado Médico</option>                          
-                            </select>                          
+                            </select>      
+                            <input id="hdnIdCita" type="hidden" />
                         </td>
                         <td>
                             <label>Fecha de cita: </label>
-                            <input required class="form-control" name="fechaCita" id="idFechaCita" type="date">
+                            <input required class="form-control" id="idFechaCita" type="date">
                         </td>
                     </tr>
                     <tr>

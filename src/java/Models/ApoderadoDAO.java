@@ -139,6 +139,37 @@ public class ApoderadoDAO {
 
         return apoderado;
     }
+    
+    public Apoderado obtener(int id) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        String consultaSQL = String.format("select * from Apoderado where idApoderado='%d';", id);
+        Apoderado apoderado = new Apoderado();
+
+        try {
+
+            GestorSQL.Instance().abrirConexion();
+            ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
+
+            while (resultado.next()) {
+                apoderado.setIdApoderado(resultado.getInt("idApoderado"));
+                apoderado.setNombres(resultado.getString("apoNombres"));
+                apoderado.setApellidos(resultado.getString("apoApellidos"));
+                apoderado.setUsuario(resultado.getString("apoUSuario"));
+                apoderado.setPassword(resultado.getString("apoPasswd"));
+                apoderado.setCelular(resultado.getString("apoCel"));
+                apoderado.setCelularEmergencia(resultado.getString("apoCelEmergencia"));
+                apoderado.setIdPaciente(resultado.getInt("idPaciente"));
+                apoderado.setEstadoCuenta(resultado.getString("apoEstadoCuenta"));
+                apoderado.setCorreo(resultado.getString("apoCorreo"));
+            }
+
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ApoderadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return apoderado;
+    }
 
     public void insertarPaciente(Apoderado apoderado) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 

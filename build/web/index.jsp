@@ -40,8 +40,8 @@
 
                         <a class="btn dropdown-item" href="view/Apoderado/Login.jsp">Apoderado</a>
                         <input class="btn dropdown-divider">
-                        <a class="btn dropdown-item">Administrador</a>
-                        <a class="btn dropdown-item">Profesional</a>
+                        <a class="btn dropdown-item" href="http://localhost:8080/Servicios_Mentales/view/Administrador/Login.jsp">Administrador</a>
+                        <a class="btn dropdown-item" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Login.jsp">Profesional</a>
                         <a class="btn dropdown-item">Trabajador</a>
 
                     </div>
