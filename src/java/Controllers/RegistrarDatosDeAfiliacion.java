@@ -76,7 +76,7 @@ public class RegistrarDatosDeAfiliacion extends HttpServlet {
 
         try {
             //String jsonA = request.getParameter("apoderado");
-           
+
             String nombres = request.getParameter("nombres");
             String apellidos = request.getParameter("apellidos");
             String dni = request.getParameter("dni");
@@ -94,7 +94,7 @@ public class RegistrarDatosDeAfiliacion extends HttpServlet {
             //Apoderado apoderado = new Gson().fromJson(jsonA, Apoderado.class);
             //Paciente paciente = new Gson().fromJson(jsonP, Paciente.class);
             Paciente paciente = new Paciente();
-            
+
             paciente.setNombres(nombres);
             paciente.setApellidos(apellidos);
             paciente.setDni(dni);
@@ -104,7 +104,7 @@ public class RegistrarDatosDeAfiliacion extends HttpServlet {
             paciente.setDireccion(direccion);
             paciente.setEstadoCivil(estadoCivil);
             paciente.setNivelAcademico(nivelAcademico);
-            
+
             Apoderado apoderado = new Apoderado();
             apoderado.setCelular(celular);
             apoderado.setCelularEmergencia(celularEmergencia);
@@ -113,9 +113,11 @@ public class RegistrarDatosDeAfiliacion extends HttpServlet {
             HttpSession sesion = request.getSession();
 
             new PacienteDAO().insertar(paciente);
-            
-            int idApoderado = (int) sesion.getAttribute("idApoderado");           
+
+            int idApoderado = (int) sesion.getAttribute("idApoderado");
             int idPaciente = new PacienteDAO().obtenerPorDni(paciente.getDni()).getIdPaciente();
+
+            sesion.setAttribute("idPaciente", idPaciente);
 
             apoderado.setIdPaciente(idPaciente);
             apoderado.setIdApoderado(idApoderado);
@@ -125,7 +127,7 @@ public class RegistrarDatosDeAfiliacion extends HttpServlet {
 
             String JSON = new Gson().toJson(paciente);
             response.getWriter().write(JSON);
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(RegistrarDatosDeAfiliacion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

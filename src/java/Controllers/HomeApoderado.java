@@ -60,6 +60,11 @@ public class HomeApoderado extends HttpServlet {
             gson.add("datos", new AnuncioDAO().obtenerListaJSON());
             response.getWriter().write(gson.toString());
 
+            Apoderado apoderado = (Apoderado) request.getSession().getAttribute("apoderado");
+            Paciente paciente = new PacienteDAO().obtenerPorId(new ApoderadoDAO().obtenerIdPaciente(apoderado.getUsuario()));
+            HttpSession sesion = request.getSession();     
+            sesion.setAttribute("paciente", paciente);
+
         } catch (Exception ex) {
             Logger.getLogger(ApoderadoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -121,9 +121,18 @@ insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','0
 
 insert into Cita(citMotivo,citFecha,citEstado,citEstado,idDoctor) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Atendido');
 
-select * from Cita
+select * from Cita where idPaciente = 7
 
 update Cita set idDoctor = 1 where idCita=1
+
+select * from Cita where idDoctor = 1 and citEstado!='Reservado N'
+
+select * from Cita where idDoctor = 1
+
+select * from Cita
+
+
+insert into Cita(citMotivo,citFecha,citEstado,idDoctor,idPaciente,citHorario) values('Consulta','2000-01-01','Reservado',1,7,'03:00 PM - 05:00 PM');
 
 
 CREATE TABLE Administrador(
@@ -141,4 +150,69 @@ select count(*) from Administrador where admUsuario='admin' and admPasswd='admin
 
 select * from Administrador where admUsuario='admin';
 
+
+CREATE TABLE Profesional(
+	idProfesional int auto_increment PRIMARY KEY,
+    proNombres varchar(100) not null,
+    proApellidos varchar(100) not null,
+    proFechaNac date not null,
+    proDNI char(8) not null unique,
+    proSexo char(1) not null,
+    proDireccion varchar(100) not null,
+    proCorreo varchar(100) not null unique,
+    proCel varchar(100) not null,
+    proUsuario varchar(100) not null unique,
+    proPasswd varchar(200) not null unique,
+    proCMP varchar(100) not null unique,
+    proEstadoCuenta char(1) not null
+);
+
+insert into Profesional VALUES(default,'Frank','Frank','1998-11-10','12366678','M',
+'Jr. unjiron #666','uncorreo@gmail.com','951741852','frank','frank','123123','A');
+
+select * from Profesional;
+
+select count(*) from Profesional where proUsuario='frank' and proPasswd='frank'
+
+select * from Profesional where proUsuario='frank'
+
+
+
+CREATE TABLE Trabajador(
+	idTrabajador int auto_increment PRIMARY KEY,
+	traNombres varchar(100) not null,
+	traApellidos varchar(100) Not null,
+	traDNI char(8) not null,
+	traFechaNac date Not null,
+	traSexo char(1)  not null,
+	traDireccion varchar(200) not NULL,
+	traCorreo varchar(100) not NULL unique,
+	traCel varchar(50) NOT NULL UNIQUE,
+	traUsuario varchar(50) UNIQUE NOT NULL,
+	traPasswd varchar(200) NOT NULL,
+	traEstadoCuenta char(1) NOT NULL
+);
+
+insert into Trabajador VALUES(default,'Fredo','Godofredo','12345678','1998-11-10','M',
+'Jr. unjiron #666','uncorreo@gmail.com','951741852','fredo','fredo','A');
+
+select * from Trabajador;
+
+
+
+select count(*) from Trabajador where traUsuario='%s' and traPasswd='%s';
+
+select * from Trabajador 
     
+    
+CREATE TABLE Historia(
+    idHistoria int auto_increment PRIMARY KEY,
+    hisMotivo varchar](200) ,
+    idCita int ,
+    hisObservacion varchar(200) ,
+    hisDescripcionvarchar(200) ,
+    hisExamenes varchar(200) ,
+    hisDiagnostico varchar(200) ,
+    hisTratamiento varchar(200) 
+);
+ 

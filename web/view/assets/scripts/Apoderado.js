@@ -27,18 +27,9 @@ $(document).ready(function () {
             window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/RegistrarDatosDeAfiliacion.jsp";
         }else
         {
-            
+           
             window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/DatosDeAfiliacion.jsp";
-            if(apo.usuario!="")
-            {
-                alert("User: " + apo.usuario);
-                $('#idNombre').html("<i>"+apo.usuario+"</i>");
-            }
-            else
-            {
-                alert("Esta vacio");
-            }
-            //
+           
         }
 
 
@@ -145,6 +136,11 @@ class Apoderado
             }
         });
         return obj;
+    }
+    
+    modificar()
+    {
+        
     }
 
 }

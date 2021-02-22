@@ -86,6 +86,7 @@ public class LoginApoderado extends HttpServlet {
 
                 HttpSession sesion = request.getSession();             
                 sesion.setAttribute("idApoderado",apoderado.getIdApoderado());
+                sesion.setAttribute("apoderado", apoderado);
 
             } else {
                 response.getWriter().write("NULL");

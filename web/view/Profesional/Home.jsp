@@ -63,7 +63,7 @@
                 </div>
                 <br>
                 <div class="nav-item btn">
-                    <a class="nav-link active" href="CitasIndex.html" style="color: white;">
+                    <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Cita.jsp" style="color: white;">
                         <img src="../imgs/icono_citas.png" alt="logo" style=" align-items: center;" height="50px"
                             width="50px">
                         Citas

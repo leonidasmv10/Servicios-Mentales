@@ -17,17 +17,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CitaDAO implements ICitaDAO {
-    
-    
-     public void insertar(Cita cita) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+    public void insertar(Cita cita) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         try {
 
-            /*String consultaSQL = String.format("INSERT INTO Apoderado (apoNombres, apoApellidos, apoUsuario, apoPasswd, apoEstadoCuenta) VALUES('%s','%s','%s','%s','A')",
-                    apoderado.getNombres(), apoderado.getApellidos(), apoderado.getUsuario(), apoderado.getPassword());
-*/
+            String consultaSQL = String.format("insert into Cita(citMotivo,citFecha,citEstado,idDoctor,idPaciente,citHorario) values('%s','%s','%s',%d,%d,'%s');",
+                    cita.getMotivo(), cita.getFecha(), "Reservado N", cita.getIdDoctor(), cita.getIdPaciente(), cita.getHorario());
+
             GestorSQL.Instance().abrirConexion();
-            GestorSQL.Instance().ejecutarConsulta("", false);
+            GestorSQL.Instance().ejecutarConsulta(consultaSQL, false);
             GestorSQL.Instance().cerrarConexion();
 
         } catch (SQLException ex) {
@@ -41,7 +40,7 @@ public class CitaDAO implements ICitaDAO {
         LinkedList<Cita> lista = new LinkedList<Cita>();
 
         try {
-            
+
             GestorSQL.Instance().abrirConexion();
             ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
 
@@ -99,5 +98,74 @@ public class CitaDAO implements ICitaDAO {
 
         return array;
     }
+
+    public JsonArray obtenerListaJSON_IdPaciente(int idPaciente) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        String consultaSQL = String.format("select * from Cita where idPaciente = %d", idPaciente);
+        JsonArray array = new JsonArray();
+
+        try {
+
+            GestorSQL.Instance().abrirConexion();
+            ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
+
+            while (resultado.next()) {
+
+                JsonObject item = new JsonObject();
+
+                item.addProperty("idCita", resultado.getInt("idCita"));
+                item.addProperty("motivo", resultado.getString("citMotivo"));
+                item.addProperty("fecha", resultado.getString("citFecha"));
+                item.addProperty("estado", resultado.getString("citEstado"));
+                item.addProperty("monto", resultado.getString("citMontoTotal"));
+                item.addProperty("idDoctor", resultado.getString("idDoctor"));
+                item.addProperty("idPaciente", resultado.getString("idPaciente"));
+                item.addProperty("horario", resultado.getString("citHorario"));
+
+                array.add(item);
+            }
+
+            GestorSQL.Instance().cerrarConexion();
+        } catch (SQLException e) {
+            out.println(e);
+        }
+
+        return array;
+    }
+    
+    public JsonArray obtenerListaJSON_IdDoctor(int idDoctor) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        String consultaSQL = String.format("select * from Cita where idDoctor = %d and citEstado!='Reservado N'", idDoctor);
+        JsonArray array = new JsonArray();
+
+        try {
+
+            GestorSQL.Instance().abrirConexion();
+            ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
+
+            while (resultado.next()) {
+
+                JsonObject item = new JsonObject();
+
+                item.addProperty("idCita", resultado.getInt("idCita"));
+                item.addProperty("motivo", resultado.getString("citMotivo"));
+                item.addProperty("fecha", resultado.getString("citFecha"));
+                item.addProperty("estado", resultado.getString("citEstado"));
+                item.addProperty("monto", resultado.getString("citMontoTotal"));
+                item.addProperty("idDoctor", resultado.getString("idDoctor"));
+                item.addProperty("idPaciente", resultado.getString("idPaciente"));
+                item.addProperty("horario", resultado.getString("citHorario"));
+
+                array.add(item);
+            }
+
+            GestorSQL.Instance().cerrarConexion();
+        } catch (SQLException e) {
+            out.println(e);
+        }
+
+        return array;
+    }
+    
 
 }

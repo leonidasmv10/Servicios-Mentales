@@ -96,6 +96,7 @@ public class LoginProfesional extends HttpServlet {
 
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("idProfesional", profesional.getIdProfesional());
+                sesion.setAttribute("profesional", profesional);
 
             } else {
                 response.getWriter().write("NULL");

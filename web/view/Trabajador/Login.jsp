@@ -30,7 +30,7 @@
             <h1 class="login-title">Iniciar sesión</h1>
             <form action="Login.jsp" method="post">
               <div class="form-group">
-                <label for="email">Usuario</label>
+                  <label for="email" id="idUser">Usuario</label>
                 <input  required type="text" id="usuario" class="form-control" placeholder="Ingrese su nombre de usuario">
               </div>
               <div class="form-group mb-4">

@@ -9,6 +9,7 @@ import Entidades.Apoderado;
 import Entidades.Paciente;
 import Models.ApoderadoDAO;
 import Models.PacienteDAO;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -17,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -42,7 +44,7 @@ public class ModificarDatosDeAfiliacion extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ModificarDatosDeAfiliacion</title>");            
+            out.println("<title>Servlet ModificarDatosDeAfiliacion</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ModificarDatosDeAfiliacion at " + request.getContextPath() + "</h1>");
@@ -69,42 +71,46 @@ public class ModificarDatosDeAfiliacion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        Paciente paciente = new Paciente();
         
-         if (request.getParameter("botonModificar") != null) {
+        HttpSession sesion = request.getSession();
 
-            Paciente paciente = new Paciente();
+        Apoderado apoderado = (Apoderado) sesion.getAttribute("apoderado");
 
-            Apoderado apoderado = (Apoderado) request.getSession().getAttribute("apoderado");
+        paciente.setNombres(request.getParameter("nombres"));
+        paciente.setApellidos(request.getParameter("apellidos"));
+        paciente.setDni(request.getParameter("dni"));
+        paciente.setSexo(request.getParameter("sexo"));
+        paciente.setFechaDeNacimiento(request.getParameter("fechaDeNacimiento"));
+        paciente.setDireccion(request.getParameter("direccion"));
 
-            paciente.setNombres(request.getParameter("nombreM").toString());
-            paciente.setApellidos(request.getParameter("apellidosM").toString());
-            paciente.setDni(request.getParameter("dniM").toString());
-            paciente.setSexo(request.getParameter("sexoM").toString());
-            paciente.setFechaDeNacimiento(request.getParameter("fechaNacM").toString());
-            paciente.setDireccion(request.getParameter("direccionM").toString());
-            apoderado.setCelular(request.getParameter("celularM").toString());
-            apoderado.setCelularEmergencia(request.getParameter("celEmergenciaM").toString());
-            apoderado.setCorreo(request.getParameter("correoM").toString());
-            paciente.setReligion(request.getParameter("religionM").toString());
-            paciente.setEstadoCivil(request.getParameter("estadoCivilM").toString());
-            paciente.setNivelAcademico(request.getParameter("nivelAcademicoM").toString());
+        apoderado.setCelular(request.getParameter("celular"));
+        apoderado.setCelularEmergencia(request.getParameter("celularEmergencia"));
+        apoderado.setCorreo(request.getParameter("correo"));
+        
+        paciente.setReligion(request.getParameter("religion"));
+        paciente.setEstadoCivil(request.getParameter("estadoCivil"));
+        paciente.setNivelAcademico(request.getParameter("nivelAcademico"));
 
-            try {
-                int idPaciente = new PacienteDAO().obtenerPorDni(paciente.getDni()).getIdPaciente();
-                apoderado.setIdPaciente(idPaciente);
-                paciente.setIdPaciente(idPaciente);
-                new ApoderadoDAO().modificarDatosDeAfiliacion(paciente, apoderado);
-                
-                request.getRequestDispatcher("view/Apoderado/Home.jsp").forward(request, response);
-            } catch (Exception e) {
-                out.print(e);
-            }
+        try {
+            int idPaciente = new PacienteDAO().obtenerPorDni(paciente.getDni()).getIdPaciente();
+           
+            
+           // int idPaciente = (int)sesion.getAttribute("idPaciente");
+            
+            apoderado.setIdPaciente(idPaciente);
+            paciente.setIdPaciente(idPaciente);
+
+            new ApoderadoDAO().modificarDatosDeAfiliacion(paciente, apoderado);
+            String JSON = new Gson().toJson(apoderado);
+            response.getWriter().write(JSON);
+
+        } catch (Exception e) {
+            out.print(e);
         }
-        
-        
+
     }
 
-    
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -50,8 +51,13 @@ public class CitaApoderado extends HttpServlet {
             throws ServletException, IOException {
 
         try {
+
+            HttpSession sesion = request.getSession();
+
+            Apoderado apoderado = (Apoderado) sesion.getAttribute("apoderado");
+
             JsonObject gson = new JsonObject();
-            gson.add("datos", new CitaDAO().obtenerListaJSON());
+            gson.add("datos", new CitaDAO().obtenerListaJSON_IdPaciente(apoderado.getIdPaciente()));
             response.getWriter().write(gson.toString());
         } catch (Exception ex) {
             Logger.getLogger(CitaDAO.class.getName()).log(Level.SEVERE, null, ex);

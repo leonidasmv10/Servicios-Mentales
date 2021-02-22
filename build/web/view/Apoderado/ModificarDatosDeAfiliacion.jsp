@@ -71,26 +71,26 @@
     </div>
     <table class="table table-active" style="align-items: center; align-content: center; text-align: center;">
         <tbody>
-        <form action="../../ModificarDatosDeAfiliacion" method="post">
+        <form>
             <tr>
                 <td>
                     <div class="form-group">
                         <label>Nombre(s): </label>
-                        <input required type="text" name="nombreM" class="form-control" placeholder="Ingrese su nombre"
+                        <input required type="text" id="nombreT" class="form-control" placeholder="Ingrese su nombre"
                                value=${paciente.getNombres()}>
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
                         <label>Apellidos: </label>
-                        <input required type="text" name="apellidosM" class=" form-control" placeholder="Ingrese sus apellidos"
+                        <input required type="text" id="apellidosT" class=" form-control" placeholder="Ingrese sus apellidos"
                                value=${paciente.getApellidos()}>
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
                         <label>DNI: </label>
-                        <input required type="number" name="dniM" class=" form-control" placeholder="Ingrese su nombre" value=${paciente.getDni()}>
+                        <input required type="number" id="dniT" class=" form-control" placeholder="Ingrese su nombre" value=${paciente.getDni()}>
                     </div>
                 </td>
             </tr>
@@ -98,7 +98,7 @@
                 <td>
                     <div class="form-group">
                         <label>Sexo: </label>
-                        <select required="" name="sexoM" id="" class="form-control">
+                        <select required="" id="sexoT" class="form-control">
 
                             <option>Seleccione su género</option>
                             <option value=\"Masculino\">Masculino</option>
@@ -110,13 +110,13 @@
                 <td>
                     <div class="form-group">
                         <label>Fecha de nacimiento: </label>
-                        <input required type="date" name="fechaNacM" class=" form-control" value=${paciente.getFechaDeNacimiento()}>
+                        <input required type="date" id="fechaNacT" class=" form-control" value=${paciente.getFechaDeNacimiento()}>
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
                         <label>Dirección: </label>
-                        <input required type="text" name="direccionM" class=" form-control" value=${paciente.getDireccion()}>
+                        <input required type="text" id="direccionT" class=" form-control" value=${paciente.getDireccion()}>
                     </div>
                 </td>
             </tr>
@@ -124,19 +124,19 @@
                 <td>
                     <div class="form-group">
                         <label>Celular: </label>
-                        <input required type="tel" name="celularM" class=" form-control" value=${apoderado.getCelular()}>
+                        <input required type="tel"  id="celularT" class=" form-control" value=${apoderado.getCelular()}>
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
                         <label>Celular de emergencia: </label>
-                        <input required type="tel" name="celEmergenciaM" class=" form-control" value=${apoderado.getCelularEmergencia()}>
+                        <input required type="tel" id="celEmergenciaT" class=" form-control" value=${apoderado.getCelularEmergencia()}>
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
                         <label>E-Mail de contacto: </label>
-                        <input required type="text" name="correoM" class=" form-control" value=${apoderado.getCorreo()}>
+                        <input required type="text" id="correoT" class=" form-control" value=${apoderado.getCorreo()}>
                     </div>
                 </td>
             </tr>
@@ -144,13 +144,13 @@
                 <td>
                     <div class="form-group">
                         <label>Religión: </label>
-                        <input required type="text" name="estadoCivilM" class=" form-control" value=${paciente.getReligion()}>
+                        <input required type="text" id="estadoCivilT" class=" form-control" value=${paciente.getReligion()}>
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
                         <label>Estado civil: </label>
-                        <select required name="religionM"  class="form-control">
+                        <select required id="religionT" class="form-control">
                             <option>Seleccione su estado</option>
                             <option value="Soltero">Soltero</option>
                             <option value="Casado">Casado</option>
@@ -162,7 +162,7 @@
                 <td>
                     <div class="form-group">
                         <label>Nivel académico: </label>
-                        <select required name="nivelAcademicoM" id="" class="form-control">
+                        <select required id="nivelAcademicoT" class="form-control">
                             <option>Seleccione su nivel</option>
                             <option value="Inicial">Inicial culminada</option>
                             <option value="Primaria">Primaria culminada</option>
@@ -178,7 +178,7 @@
     <br>
     <br>
 <center>
-    <button name="botonModificar" type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success"><strong>Guardar</strong></button>
+    <button id="botonModificar" type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success"><strong>Guardar</strong></button>
     &nbsp;
     &nbsp;
     &nbsp;
@@ -242,9 +242,12 @@
     </table>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+<script src="../assets/scripts/Apoderado.js" type="text/javascript"></script>
+<script src="../assets/scripts/Paciente.js" type="text/javascript"></script>
 
 </body>
 </html>

@@ -113,5 +113,40 @@ public class PacienteDAO {
         }
         return paciente;
     }
+    
+    public Paciente obtenerPorIdCita(int idCita) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        
+        Paciente paciente = new Paciente();
+        
+        try {
+
+            String consultaSQL = String.format("select * from Paciente where idPaciente = (select idPaciente from Cita where idCita = %d)", idCita);
+
+            GestorSQL.Instance().abrirConexion();
+            ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
+
+            while (resultado.next()) {
+                
+                paciente.setIdPaciente(resultado.getInt("idPaciente"));
+                paciente.setNombres(resultado.getString("pacNombres"));
+                paciente.setApellidos(resultado.getString("pacApellidos"));
+                paciente.setDni(resultado.getString("pacDNI"));
+                paciente.setFechaDeNacimiento(resultado.getString("pacFechaNac"));
+                paciente.setSexo(resultado.getString("pacSexo"));
+                paciente.setDireccion(resultado.getString("pacDireccion"));
+                paciente.setReligion(resultado.getString("pacReligion"));
+                paciente.setEstadoCivil(resultado.getString("pacEstadoCivil"));
+                paciente.setNivelAcademico(resultado.getString("pacNivelAcademico"));
+
+
+            }
+
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ApoderadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return paciente;
+    }
 
 }

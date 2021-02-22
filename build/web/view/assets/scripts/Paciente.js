@@ -7,12 +7,18 @@ $(document).ready(function () {
     $('#botonRegistrar').click(function (e) {
 
         e.preventDefault();
-
-        alert("Entrando");
-
         paciente.guardar();
 
     });
+
+    $('#botonModificar').click(function (e) {
+
+        e.preventDefault();
+        paciente.modificar();
+
+    });
+
+
 
 
 });
@@ -84,6 +90,36 @@ var Paciente = function () {
         modificar: function ()
         {
 
+
+
+
+            alert("ModificANDO");
+
+            $.ajax({
+                url: 'http://localhost:8080/Servicios_Mentales/ModificarDatosDeAfiliacion',
+                data: {
+
+                    nombres: $("#nombreT").val(),
+                    apellidos: $("#apellidosT").val(),
+                    dni: $("#dniT").val(),
+                    sexo: $("#sexoT").val(),
+                    fechaDeNacimiento: $("#fechaNacT").val(),
+                    direccion: $("#direccionT").val(),
+                    religion: $("#religionT").val(),
+                    estadoCivil: $("#estadoCivilT").val(),
+                    nivelAcademico: $("#nivelAcademicoT").val(),
+
+                    celular: $("#celularT").val(),
+                    celularEmergencia: $("#celEmergenciaT").val(),
+                    correo: $("#correoT").val(),
+                },
+                method: 'POST',
+                async: true,
+                success: function (data) {
+                    console.log(data);
+                    alert("Funcionando");
+                }
+            });
         }
 
     }

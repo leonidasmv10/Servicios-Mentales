@@ -43,7 +43,7 @@
                         <div class="col-sm-12" style="text-align: center;">
                             <br>
                             <label style="color: white"> Bienvenido </label>
-                            <input type="text" class="form-control" disabled>
+                            <input type="text" value=${trabajador.getUsuario()} class="form-control" disabled>
                             <br>
                         </div>
                         <div class="nav-item btn" >

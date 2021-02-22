@@ -1,20 +1,26 @@
 $(document).ready(function () {
 
-    const trabajador = new Trabajador();
+    var trabajador = new Trabajador();
     $('#btnIngresar').click(function (e) {
         e.preventDefault();
-        trabajador.iniciarSesion();
+
+        var jsonTrabajador = trabajador.iniciarSesion();
+        
+
+        console.log(objTrabajador);
+        alert("ruta es: ");
     });
+    
+    
 });
 
 
 class Trabajador
 {
-    
-    trabajador = "";
 
     constructor()
     {
+
         if (Trabajador.instance instanceof Trabajador)
         {
             return Trabajador.instance;
@@ -27,7 +33,9 @@ class Trabajador
 
         var usuario = $("#usuario").val();
         var password = $("#password").val();
-        
+
+        var trabajador;
+
 
 
         $.ajax({
@@ -37,27 +45,30 @@ class Trabajador
                 password: password
             },
             method: 'POST',
+            dataType: "json",
+            async: false,
             success: function (data) {
 
                 if (data == "NULL") {
                     window.location = "http://localhost:8080/Servicios_Mentales/index.jsp";
                 } else {
-                    this.profesional = JSON.parse(data);
-                    console.log(this.profesional);
-                    //alert(Number(administrador.idApoderado));
-                    
-                    window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/Home.jsp";
-                    
 
+                    //console.log(data);
+                    trabajador = data;
+                    //console.log(trabajador);
+                    window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/Home.jsp";
+                    $('#idUserTrabajador').html('Hooola '+trabajador.nombres);
                 }
             }
         });
-        
-        alert(get());
+
+
+
+        return trabajador;
 
     }
-    
-     get() {
+
+    get() {
         return this.profesional;
     }
 
