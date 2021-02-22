@@ -3,23 +3,27 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<link rel="stylesheet" href="assets/css/style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="Description" content="Enter your description here"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-<title>.: BIENVENIDO :.</title>
-    <link rel="shortcut icon" href="../imgs/icono_title.png">
-</head>
-<body>
+        <title>.: BIENVENIDO :.</title>
+        <link rel="shortcut icon" href="../imgs/icono_title.png">
+        <link rel="stylesheet" href="assets/css/style.css">
 
-    <!--NAVBAR Superior-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+
+
+    </head>
+    <body>
+
+        <!--NAVBAR Superior-->
         <nav class="sb-topnav navbar navbar-expand navbar-primary bg-primary">
             <a class="navbar-brand" style="color: white;" href="Home.html">
                 <img src="../imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
@@ -36,294 +40,197 @@
                 </div>
             </div>
         </nav>
-    
+
         <!-- Navbar Izquierda -->
         <div class="body row">
             <div class="col-sm-2" style="background-color: rgb(19, 94, 124);">
                 <nav class="navbar-expand navbar-primary flex-column" aria-label="#" >
-                <div class="col-sm-12" style="text-align: center;">
-                            <br>
-                            <label style="color: white"> Bienvenido </label>
-                            <input type="text" id="userID" value="GA" class="form-control" disabled>
-                            <br>
-                        </div>                    
+                    <div class="col-sm-12" style="text-align: center;">
+                        <br>
+                        <label style="color: white"> Bienvenido </label>
+                        <input type="text" id="userID" class="form-control" disabled value=${administrador.getUsuario()}>
+                        <br>
+                    </div>                    
                     <div class="nav-item btn" >
                         <a class="nav-link active" href="Home.html" style="color: white;">
-                        <img src="../imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px" width="50px">
+                            <img src="../imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px" width="50px">
                             Inicio
                         </a>
-                        </div>
-                        <br>
-                        <div class="nav-item btn ">
-                            <a class="nav-link active" href="PacientesIndex.html" style="color: white;">
-                                <img src="../imgs/icono_paciente.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
-                                Pacientes
-                            </a>
-                        </div>
-                        <br>
-                        <div class="nav-item btn ">
-                            <a class="nav-link active" href="ProfesionalesIndex.html" style="color: white;">
-                                <img src="../imgs/icono_profesionales.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
-                                Profesionales
-                            </a>
-                        </div>
-                        <br>
-                        <div class="nav-item btn ">
-                            <a class="nav-link active" href="TrabajadoresIndex.html" style="color: white;">
-                                <img src="../imgs/icono_trabajadores.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
-                                Trabajadores
-                            </a>
-                        </div>
-                        <br>                        
-                        <br>                                                                                
+                    </div>
+                    <br>
+                    <div class="nav-item btn ">
+                        <a class="nav-link active" href="PacientesIndex.html" style="color: white;">
+                            <img src="../imgs/icono_paciente.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
+                            Pacientes
+                        </a>
+                    </div>
+                    <br>
+                    <div class="nav-item btn ">
+                        <a class="nav-link active" href="ProfesionalesIndex.html" style="color: white;">
+                            <img src="../imgs/icono_profesionales.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
+                            Profesionales
+                        </a>
+                    </div>
+                    <br>
+                    <div class="nav-item btn ">
+                        <a class="nav-link active" href="TrabajadoresIndex.html" style="color: white;">
+                            <img src="../imgs/icono_trabajadores.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
+                            Trabajadores
+                        </a>
+                    </div>
+                    <br>                        
+                    <br>                                                                                
                 </nav>
             </div>
-                <div class="col-sm-10">
-    
-                    <!--Contenido-->
-                        <div style="text-align: center; align-items: center;">
-                            <br>                
-                            <br>                
-                            <h3 style="color:rgb(29, 140, 184);"><strong>ANUNCIOS</strong></h3>
-                            <br>
+            <div class="col-sm-10">
+
+                <!--Contenido-->
+                <div style="text-align: center; align-items: center;">
+                    <br>                
+                    <br>                
+                    <h3 style="color:rgb(29, 140, 184);"><strong>ANUNCIOS</strong></h3>
+                    <br>
+                </div>
+                <div style="align-items: center; align-self: center; align-content: center; text-align: center;">
+
+
+                    <table id="table_main" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Descripción</th>
+                                <th>Acción</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+                <br>
+                <br>
+                <center>
+                    <a href="AnunciosIndex.html" class="btn btn-warning"><strong>Modificar Anuncios</strong></a>
+                </center>
+                <br><br>
+                <div style="text-align: center; align-items: center;">
+                    <br>
+                    <br>
+                    <br>
+                    <h3 style="color:rgb(29, 140, 184);"><strong>NOVEDADES</strong></h3>
+                    <br>
+                </div>
+                <div style="align-items: center; align-self: center; align-content: center; text-align: center;">
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <h6><strong>#</strong></h6>
                         </div>
-                        <div style="align-items: center; align-self: center; align-content: center; text-align: center;">
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h6><strong>#</strong></h6>
-                            </div>
-                            <div class="col-sm-2">
-                                <h6><strong>Título</strong></h6>
-                            </div>
-                            <div class="col-sm-7">
-                                <h6><strong>Descripción</strong></h6>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
+                        <div class="col-sm-2">
+                            <h6><strong>Título</strong></h6>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h7>1</h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <h7>Anuncio 1</h7>
-                            </div>
-                            <div class="col-sm-7">
-                                <h7>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                    vel sint nobis...
-                                </h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="VerAnuncio.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                            </div>
+                        <div class="col-sm-7">
+                            <h6><strong>Descripción</strong></h6>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h7>2</h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <h7>Anuncio 2</h7>
-                            </div>
-                            <div class="col-sm-7">
-                                <h7>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                    vel sint nobis...
-                                </h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="VerAnuncio.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h7>3</h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <h7>Anuncio 3</h7>
-                            </div>
-                            <div class="col-sm-7">
-                                <h7>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                    vel sint nobis...
-                                </h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="VerAnuncio.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                            </div>
-                        </div>                            
-                        </div>
-                        <br>
-                        <br>
-                        <center>
-                        <a href="AnunciosIndex.html" class="btn btn-warning"><strong>Modificar Anuncios</strong></a>
-                        </center>
-                        <br><br>
-                        <div style="text-align: center; align-items: center;">
-                            <br>
-                            <br>
-                            <br>
-                            <h3 style="color:rgb(29, 140, 184);"><strong>NOVEDADES</strong></h3>
-                            <br>
-                        </div>
-                        <div style="align-items: center; align-self: center; align-content: center; text-align: center;">
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h6><strong>#</strong></h6>
-                            </div>
-                            <div class="col-sm-2">
-                                <h6><strong>Título</strong></h6>
-                            </div>
-                            <div class="col-sm-7">
-                                <h6><strong>Descripción</strong></h6>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h7>1</h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <h7>Novedad 1</h7>
-                            </div>
-                            <div class="col-sm-7">
-                                <h7>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                    vel sint nobis...
-                                </h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="VerNovedad.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h7>2</h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <h7>Novedad 2</h7>
-                            </div>
-                            <div class="col-sm-7">
-                                <h7>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                    vel sint nobis...
-                                </h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="VerNovedad.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <h7>3</h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <h7>Novedad 3</h7>
-                            </div>
-                            <div class="col-sm-7">
-                                <h7>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                    vel sint nobis...
-                                </h7>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="VerAnuncio.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                            </div>
+                        <div class="col-sm-2">
                         </div>
                     </div>
-                        <br>
-                        <br>                        
-                        <center>
-                            <a href="NovedadesIndex.html" class="btn btn-warning"><strong>Modificar Novedades</strong></a>
-                            </center>
-                            <br>
-                            <br>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <h7>1</h7>
+                        </div>
+                        <div class="col-sm-2">
+                            <h7>Novedad 1</h7>
+                        </div>
+                        <div class="col-sm-7">
+                            <h7>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
+                                vel sint nobis...
+                            </h7>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="VerNovedad.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <h7>2</h7>
+                        </div>
+                        <div class="col-sm-2">
+                            <h7>Novedad 2</h7>
+                        </div>
+                        <div class="col-sm-7">
+                            <h7>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
+                                vel sint nobis...
+                            </h7>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="VerNovedad.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <h7>3</h7>
+                        </div>
+                        <div class="col-sm-2">
+                            <h7>Novedad 3</h7>
+                        </div>
+                        <div class="col-sm-7">
+                            <h7>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
+                                vel sint nobis...
+                            </h7>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="VerAnuncio.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
+                        </div>
                     </div>
                 </div>
+                <br>
+                <br>                        
+                <center>
+                    <a href="NovedadesIndex.html" class="btn btn-warning"><strong>Modificar Novedades</strong></a>
+                </center>
+                <br>
+                <br>
             </div>
+        </div>
+    </div>
 
-            <div class="card bg-primary" >
-                <table class="container">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="card-body" style="color: white;">
-                                    <h5 class="card-title ">Correos</h5>
-                                    <p class="card-text ">
-                                        <ul>
-                                            <li>serviciosmentales@outlook.com</li>
-                                            <li>serviciosmentales@gmail.com</li>
-                                        </ul>
-                                    </p>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="card-body" style="color: white;">
-                                    <h5 class="card-title ">Teléfonos</h5>
-                                    <p class="card-text ">
-                                        <ul>
-                                            <li>985 245 689</li>
-                                            <li>976 987 423</li>
-                                        </ul>                                        
-                                    </p>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="card-body" style="color: white;">
-                                    <h5 class="card-title ">Servicios</h5>
-                                    <p class="card-text ">
-                                        <ul>
-                                            <li>Consulta psiquiátrica</li>
-                                            <li>Certificado médico</li>
-                                        </ul>
-                                    </p>
-                                </div>
-                            </td>
-                        </tr> 
-                        <tr> 
-                        <td></td>                                                  
-                            <td>
-                                <div class="row card-text">
-                                    <div class="col-sm-12">
-                                        <i style="color: white; text-align: center;">Copyright © Servicios Mentales 2020</i>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>                           
-                    </tbody>
-                </table>
-            </div>
-    
-            <script>
-                // Write on keyup event of keyword input element
-                $(document).ready(function(){
-                $("#search").keyup(function(){
-                _this = this;
-                // Show only matching TR, hide rest of them
-                $.each($("#mytable tbody tr"), function() {
-                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                $(this).hide();
-                else
-                $(this).show();
-                });
-                });
-               });
-               </script>
+    <div class="card bg-primary" >
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
-<script src="../assets/scripts/LoginAdministrador.js" type="text/javascript"></script>
 
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+
+    <script src="../assets/scripts/LoginAdministrador.js" type="text/javascript"></script>
+    <script src="../assets/scripts/Anuncio.js" type="text/javascript"></script>
 </body>
 </html>

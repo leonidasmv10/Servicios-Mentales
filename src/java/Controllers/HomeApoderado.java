@@ -57,7 +57,7 @@ public class HomeApoderado extends HttpServlet {
         try {
 
             JsonObject gson = new JsonObject();
-            gson.add("datos", new AnuncioDAO().obtenerListaJSON());
+            gson.add("datos", new AnuncioDAO().obtenerListaNovedadJSON());
             response.getWriter().write(gson.toString());
 
             Apoderado apoderado = (Apoderado) request.getSession().getAttribute("apoderado");

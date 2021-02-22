@@ -114,6 +114,8 @@ var Cita = function () {
                 },
             });
         },
+        
+       
 
         atender: function (idCita) {
 

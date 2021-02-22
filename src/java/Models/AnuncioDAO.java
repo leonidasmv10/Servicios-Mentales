@@ -16,9 +16,39 @@ import java.sql.SQLException;
 
 public class AnuncioDAO {
 
-    public JsonArray obtenerListaJSON() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public JsonArray obtenerListaNovedadJSON() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio";
+        String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio where anuTipo = 'Novedad'";
+        JsonArray array = new JsonArray();
+        try {
+            GestorSQL.Instance().abrirConexion();
+            ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
+
+            while (resultado.next()) {
+
+                JsonObject item = new JsonObject();
+
+                item.addProperty("idAnuncio", resultado.getInt("idAnuncio"));
+                item.addProperty("titulo", resultado.getString("anuTitulo"));
+                item.addProperty("descripcion", resultado.getString("anuDescripcion"));
+                item.addProperty("tipo", resultado.getString("anuTipo"));
+                item.addProperty("estado", resultado.getString("anuEstado"));
+                item.addProperty("idAdmin", resultado.getString("idAdministrador"));
+
+                array.add(item);
+            }
+
+            GestorSQL.Instance().cerrarConexion();
+        } catch (SQLException e) {
+            out.println(e);
+        }
+
+        return array;
+    }
+    
+    public JsonArray obtenerListaAnuncioJSON() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio where anuTipo = 'Anuncio'";
         JsonArray array = new JsonArray();
         try {
             GestorSQL.Instance().abrirConexion();
