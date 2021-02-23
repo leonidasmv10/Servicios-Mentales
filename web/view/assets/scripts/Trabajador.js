@@ -5,13 +5,19 @@ $(document).ready(function () {
         e.preventDefault();
 
         var jsonTrabajador = trabajador.iniciarSesion();
-        
+
 
         console.log(objTrabajador);
         alert("ruta es: ");
     });
-    
-    
+
+    $('#buttonAdd').click(function (e) {
+        e.preventDefault();
+        trabajador.guardar();
+
+    });
+
+
 });
 
 
@@ -57,7 +63,7 @@ class Trabajador
                     trabajador = data;
                     //console.log(trabajador);
                     window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/Home.jsp";
-                    $('#idUserTrabajador').html('Hooola '+trabajador.nombres);
+                    $('#idUserTrabajador').html('Hooola ' + trabajador.nombres);
                 }
             }
         });
@@ -68,8 +74,34 @@ class Trabajador
 
     }
 
-    get() {
-        return this.profesional;
+    guardar() {
+
+
+
+        $.ajax({
+            url: 'http://localhost:8080/Servicios_Mentales/RegistrarTrabajador',
+            data: {
+
+                nombres: $("#nombres").val(),
+                apellidos: $("#apellidos").val(),
+                dni: $("#dni").val(),
+                sexo: $("#sexo").val(),
+                fechaNac: $("#fechaNac").val(),
+                direccion: $("#direccion").val(),
+
+                celular: $("#celularPersonal").val(),
+                correo: $("#correo").val(),
+                estado: $("#estado").val(),
+                usuario: $("#usuario").val(),
+                password: $("#password").val()
+            },
+            method: 'POST',
+            success: function (data) {
+                //var ap = JSON.parse(data);
+                console.log(data);
+                alert(data);
+            }
+        });
     }
 
 }

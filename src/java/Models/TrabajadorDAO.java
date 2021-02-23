@@ -16,11 +16,26 @@ import java.util.logging.Logger;
  *
  * @author yordy
  */
-public class TrabajadorDAO implements ITrabajadorDAO{
-    
-    
-    
-     public int buscar(String usuario, String password) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+public class TrabajadorDAO implements ITrabajadorDAO {
+
+    public void insertar(Trabajador trabajador) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        try {
+
+            String consultaSQL = String.format("insert into Trabajador VALUES(default,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",
+                    trabajador.getNombres(), trabajador.getApellidos(), trabajador.getDni(), trabajador.getFechaNac(), trabajador.getSexo(), trabajador.getDireccion(),
+                    trabajador.getCorreo(), trabajador.getCel(), trabajador.getUsuario(), trabajador.getPasswd(), trabajador.getEstadoCuenta());
+
+            GestorSQL.Instance().abrirConexion();
+            GestorSQL.Instance().ejecutarConsulta(consultaSQL, false);
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfesionalDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public int buscar(String usuario, String password) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 
         int find = 0;
         String consultaSQL = String.format("select count(*) from Trabajador where traUsuario='%s' and traPasswd='%s'", usuario, password);
@@ -43,7 +58,7 @@ public class TrabajadorDAO implements ITrabajadorDAO{
     }
 
     public Trabajador obtener(String usuario) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        
+
         String consultaSQL = String.format("select * from Trabajador where traUsuario='%s';", usuario);
         Trabajador trabajador = new Trabajador();
 
@@ -53,7 +68,7 @@ public class TrabajadorDAO implements ITrabajadorDAO{
             ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
 
             while (resultado.next()) {
-                
+
                 trabajador.setIdTrabajador(resultado.getInt("idTrabajador"));
                 trabajador.setNombres(resultado.getString("traNombres"));
                 trabajador.setApellidos(resultado.getString("traApellidos"));
@@ -77,5 +92,5 @@ public class TrabajadorDAO implements ITrabajadorDAO{
 
         return trabajador;
     }
-    
+
 }

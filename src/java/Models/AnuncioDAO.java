@@ -13,12 +13,14 @@ import com.google.gson.JsonObject;
 import static java.lang.System.out;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AnuncioDAO {
 
     public JsonArray obtenerListaNovedadJSON() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio where anuTipo = 'Novedad'";
+        String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio where anuTipo = 'Novedad' and anuEstado = 'v'";
         JsonArray array = new JsonArray();
         try {
             GestorSQL.Instance().abrirConexion();
@@ -45,10 +47,10 @@ public class AnuncioDAO {
 
         return array;
     }
-    
+
     public JsonArray obtenerListaAnuncioJSON() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio where anuTipo = 'Anuncio'";
+        String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio where anuTipo = 'Anuncio' and anuEstado = 'v'";
         JsonArray array = new JsonArray();
         try {
             GestorSQL.Instance().abrirConexion();
@@ -75,7 +77,7 @@ public class AnuncioDAO {
 
         return array;
     }
-    
+
     public LinkedList<Anuncio> obtenerLista() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         String consultaSQL = "select idAnuncio,anuTitulo,anuDescripcion,anuTipo,anuEstado,idAdministrador from Anuncio";
@@ -84,17 +86,16 @@ public class AnuncioDAO {
             GestorSQL.Instance().abrirConexion();
             ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
 
-            while (resultado.next()) 
-            {
+            while (resultado.next()) {
                 Anuncio anuncio = new Anuncio();
-      
+
                 anuncio.setIdAnuncio(resultado.getInt("idAnuncio"));
                 anuncio.setTitulo(resultado.getString("anuTitulo"));
                 anuncio.setDescripcion(resultado.getString("anuDescripcion"));
                 anuncio.setTipo(resultado.getString("anuTipo"));
                 anuncio.setEstado(resultado.getString("anuEstado"));
                 anuncio.setIdAdmin(resultado.getInt("idAdministrador"));
-                
+
                 lista.add(anuncio);
 
             }
@@ -105,6 +106,52 @@ public class AnuncioDAO {
         }
 
         return lista;
+    }
+
+    public Anuncio obtenerPorId(int id) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        Anuncio anuncio = new Anuncio();
+
+        try {
+
+            String consultaSQL = String.format("select * from Anuncio where idAnuncio = '%d'", id);
+
+            GestorSQL.Instance().abrirConexion();
+            ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
+
+            while (resultado.next()) {
+
+                anuncio.setIdAnuncio(resultado.getInt("idAnuncio"));
+                anuncio.setTitulo(resultado.getString("anuTitulo"));
+                anuncio.setDescripcion(resultado.getString("anuDescripcion"));
+                anuncio.setTipo(resultado.getString("anuTipo"));
+                anuncio.setEstado(resultado.getString("anuEstado"));
+                anuncio.setIdAdmin(resultado.getInt("idAdministrador"));
+            }
+
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AnuncioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return anuncio;
+    }
+
+    public void modificarAnuncio(Anuncio anuncio) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        String consultaSQL = String.format("UPDATE Anuncio set anuTitulo = '%s', anuDescripcion = '%s', anuEstado = '%s' where idAnuncio = %d",
+                anuncio.getTitulo(), anuncio.getDescripcion(), anuncio.getEstado(), anuncio.getIdAnuncio());
+
+        try {
+
+            GestorSQL.Instance().abrirConexion();
+            GestorSQL.Instance().ejecutarConsulta(consultaSQL, false);
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AnuncioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

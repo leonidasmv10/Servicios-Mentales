@@ -5,12 +5,18 @@ $(document).ready(function () {
         e.preventDefault();
         profesional.iniciarSesion();
     });
+    
+     $('#buttonAdd').click(function (e) {
+        e.preventDefault();
+        profesional.guardar();
+    });
+    
 });
 
 
 class Profesional
 {
-    
+
     profesional = "";
 
     constructor()
@@ -44,18 +50,44 @@ class Profesional
                     this.profesional = JSON.parse(data);
                     console.log(this.profesional);
                     //alert(Number(administrador.idApoderado));
-                    
+
                     window.location = "http://localhost:8080/Servicios_Mentales/view/Profesional/Home.jsp";
-                    
+
 
                 }
             }
         });
 
     }
-    
-     get() {
-        return this.profesional;
+
+    guardar() {
+
+
+
+        $.ajax({
+            url: 'http://localhost:8080/Servicios_Mentales/RegistrarProfesional',
+            data: {
+                
+                nombres: $("#nombres").val(),
+                apellidos: $("#apellidos").val(),
+                dni: $("#dni").val(),
+                sexo: $("#sexo").val(),
+                fechaNac: $("#fechaNac").val(),
+                direccion: $("#direccion").val(),
+                cmp: $("#cmp").val(),
+                celular: $("#celularPersonal").val(),
+                correo: $("#correo").val(),
+                estado: $("#estado").val(),
+                usuario: $("#usuario").val(),
+                password: $("#password").val()
+            },
+            method: 'POST',
+            success: function (data) {
+                //var ap = JSON.parse(data);
+                console.log(data);
+                alert(data);
+            }
+        });
     }
 
 }

@@ -3,6 +3,7 @@ $(document).ready(function () {
     cita = new Cita();
     cita.listar();
     cita.listar_doctor();
+    
 
 
     $('#submitCita').click(function (e) {
@@ -114,8 +115,6 @@ var Cita = function () {
                 },
             });
         },
-        
-       
 
         atender: function (idCita) {
 

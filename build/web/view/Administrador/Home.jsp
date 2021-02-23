@@ -59,21 +59,21 @@
                     </div>
                     <br>
                     <div class="nav-item btn ">
-                        <a class="nav-link active" href="PacientesIndex.html" style="color: white;">
+                        <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Administrador/Pacientes.jsp" style="color: white;">
                             <img src="../imgs/icono_paciente.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
                             Pacientes
                         </a>
                     </div>
                     <br>
                     <div class="nav-item btn ">
-                        <a class="nav-link active" href="ProfesionalesIndex.html" style="color: white;">
+                        <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Administrador/Profesional.jsp" style="color: white;">
                             <img src="../imgs/icono_profesionales.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
                             Profesionales
                         </a>
                     </div>
                     <br>
                     <div class="nav-item btn ">
-                        <a class="nav-link active" href="TrabajadoresIndex.html" style="color: white;">
+                        <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Administrador/Trabajador.jsp" style="color: white;">
                             <img src="../imgs/icono_trabajadores.png" alt="logo" style=" align-items: center;" height="40px" width="40px">
                             Trabajadores
                         </a>
@@ -94,7 +94,7 @@
                 <div style="align-items: center; align-self: center; align-content: center; text-align: center;">
 
 
-                    <table id="table_main" class="table table-striped table-bordered" style="width:100%">
+                    <table id="table_anuncio_admin" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Titulo</th>
@@ -125,74 +125,22 @@
                     <br>
                 </div>
                 <div style="align-items: center; align-self: center; align-content: center; text-align: center;">
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <h6><strong>#</strong></h6>
-                        </div>
-                        <div class="col-sm-2">
-                            <h6><strong>Título</strong></h6>
-                        </div>
-                        <div class="col-sm-7">
-                            <h6><strong>Descripción</strong></h6>
-                        </div>
-                        <div class="col-sm-2">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <h7>1</h7>
-                        </div>
-                        <div class="col-sm-2">
-                            <h7>Novedad 1</h7>
-                        </div>
-                        <div class="col-sm-7">
-                            <h7>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                vel sint nobis...
-                            </h7>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="VerNovedad.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <h7>2</h7>
-                        </div>
-                        <div class="col-sm-2">
-                            <h7>Novedad 2</h7>
-                        </div>
-                        <div class="col-sm-7">
-                            <h7>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                vel sint nobis...
-                            </h7>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="VerNovedad.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <h7>3</h7>
-                        </div>
-                        <div class="col-sm-2">
-                            <h7>Novedad 3</h7>
-                        </div>
-                        <div class="col-sm-7">
-                            <h7>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quam rem dolor
-                                vel sint nobis...
-                            </h7>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="VerAnuncio.html" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Detalle</strong></a>
-                        </div>
-                    </div>
+                    
+                    <table id="table_novedad_admin" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Descripción</th>
+                                <th>Acción</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+                    
                 </div>
                 <br>
                 <br>                        
@@ -207,13 +155,7 @@
 
     <div class="card bg-primary" >
 
-
-
-
     </div>
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -230,7 +172,6 @@
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
 
-    <script src="../assets/scripts/LoginAdministrador.js" type="text/javascript"></script>
     <script src="../assets/scripts/Anuncio.js" type="text/javascript"></script>
 </body>
 </html>

@@ -17,6 +17,26 @@ import java.util.logging.Logger;
  */
 public class ProfesionalDAO {
     
+    
+    
+    public void insertar(Profesional profesional) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        try {
+
+            String consultaSQL = String.format("insert into Profesional VALUES(default,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",
+                    profesional.getNombres(),profesional.getApellidos(),profesional.getFechaNac(),profesional.getDni(),profesional.getSexo(),profesional.getDireccion(),
+                    profesional.getCorreo(),profesional.getCel(),profesional.getUsuario(),profesional.getPasswd(),profesional.getCmp(),profesional.getEstadoCuenta());
+
+            GestorSQL.Instance().abrirConexion();
+            GestorSQL.Instance().ejecutarConsulta(consultaSQL, false);
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfesionalDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
      public int buscar(String usuario, String password) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 
         int find = 0;

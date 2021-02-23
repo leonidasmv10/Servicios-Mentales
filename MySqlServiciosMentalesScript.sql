@@ -29,9 +29,15 @@ CREATE TABLE Anuncio(
 	anuTitulo varchar(100) NOT NULL,
 	anuDescripcion varchar(200) NOT NULL,
 	anuTipo varchar(50) NOT NULL,
-    anuEstado char(1) NOT NULL,
+    anuEstado varchar(50),
 	idAdministrador int
 );
+
+select * from Anuncio
+drop table Anuncio
+
+UPDATE Anuncio set anuTitulo = 'F', anuDescripcion = 'FF', anuEstado = 'v' where idAnuncio = 7
+UPDATE Anuncio set anuTitulo = '231456897', anuDescripcion = '456789231',anuEstado='' where idAnuncio = 3
 
 create table Paciente(
     idPaciente int primary key auto_increment,
@@ -49,11 +55,12 @@ create table Paciente(
 insert into Anuncio values (default,'Titulo 1', 'Descripion 1','Novedad','v',1);
 insert into Anuncio values (default,'Titulo 2', 'Descripion 2','Novedad','v',1);
 insert into Anuncio values (default,'Titulo 3', 'Descripion 3','Anuncio','v',1);
+insert into Anuncio values (default,'Eren vs Colosal', 'SNK','Anuncio','v',1);
 insert into Anuncio values (default,'Titulo 4', 'Descripion 4','Novedad','o',1);
 insert into Anuncio values (default,'Consultas', 'Oferta 4','Novedad','o',1);
 insert into Anuncio values (default,'Goku vs Vegeta', 'En Disneylandia','Novedad','o',1);
 
-select * from Anuncio
+select * from Anuncio where anuTipo = 'Novedad' and anuEstado = 'v'
 
 INSERT INTO Apoderado VALUES(default,'Miguel','Aliaga Chacon','miguel98','miguel98',
 '+51 9852741963','+51 987456321',"miguel98@gmail.com","A",null)
@@ -82,6 +89,7 @@ select * from Paciente
 
 select * from Paciente where pacDNI = '78199102'
 
+select * from Paciente where idPaciente = (select idPaciente from Cita where idCita = 14)
 
 select idPaciente from Apoderado where apoUsuario = 'code'
 
@@ -125,11 +133,14 @@ select * from Cita where idPaciente = 7
 
 update Cita set idDoctor = 1 where idCita=1
 
+update Cita set idDoctor = 1 where idCita=1
+
 select * from Cita where idDoctor = 1 and citEstado!='Reservado N'
 
 select * from Cita where idDoctor = 1
 
 select * from Cita
+
 
 
 insert into Cita(citMotivo,citFecha,citEstado,idDoctor,idPaciente,citHorario) values('Consulta','2000-01-01','Reservado',1,7,'03:00 PM - 05:00 PM');
@@ -157,20 +168,21 @@ CREATE TABLE Profesional(
     proApellidos varchar(100) not null,
     proFechaNac date not null,
     proDNI char(8) not null unique,
-    proSexo char(1) not null,
+    proSexo varchar(20) not null,
     proDireccion varchar(100) not null,
     proCorreo varchar(100) not null unique,
     proCel varchar(100) not null,
     proUsuario varchar(100) not null unique,
     proPasswd varchar(200) not null unique,
     proCMP varchar(100) not null unique,
-    proEstadoCuenta char(1) not null
+    proEstadoCuenta varchar(20) not null
 );
 
-insert into Profesional VALUES(default,'Frank','Frank','1998-11-10','12366678','M',
-'Jr. unjiron #666','uncorreo@gmail.com','951741852','frank','frank','123123','A');
+insert into Profesional VALUES(default,'Frank','Frank','1998-11-10','12366678','M','Jr. unjiron #666','uncorreo@gmail.com','951741852','frank','frank','123123','A');
 
 select * from Profesional;
+
+
 
 select count(*) from Profesional where proUsuario='frank' and proPasswd='frank'
 
@@ -184,13 +196,13 @@ CREATE TABLE Trabajador(
 	traApellidos varchar(100) Not null,
 	traDNI char(8) not null,
 	traFechaNac date Not null,
-	traSexo char(1)  not null,
+	traSexo varchar(20) not null,
 	traDireccion varchar(200) not NULL,
 	traCorreo varchar(100) not NULL unique,
 	traCel varchar(50) NOT NULL UNIQUE,
 	traUsuario varchar(50) UNIQUE NOT NULL,
 	traPasswd varchar(200) NOT NULL,
-	traEstadoCuenta char(1) NOT NULL
+	traEstadoCuenta varchar(20) NOT NULL
 );
 
 insert into Trabajador VALUES(default,'Fredo','Godofredo','12345678','1998-11-10','M',
@@ -207,12 +219,16 @@ select * from Trabajador
     
 CREATE TABLE Historia(
     idHistoria int auto_increment PRIMARY KEY,
-    hisMotivo varchar](200) ,
-    idCita int ,
-    hisObservacion varchar(200) ,
-    hisDescripcionvarchar(200) ,
-    hisExamenes varchar(200) ,
-    hisDiagnostico varchar(200) ,
+    hisMotivo varchar(200),
+    idCita int,
+    hisObservacion varchar(200),
+    hisDescripcion varchar(200),
+    hisExamenes varchar(200),
+    hisDiagnostico varchar(200),
     hisTratamiento varchar(200) 
 );
+
+insert into Historia values(default,'No sé',1,'Ni idea','Ni idea','NULL','NO se','F')
+
+select * from Historia
  
