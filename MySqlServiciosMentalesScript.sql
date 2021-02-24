@@ -52,6 +52,7 @@ create table Paciente(
     pacNivelAcademico varchar(50) 
 );
 
+drop table Paciente
 
 select * from Paciente
 
@@ -128,6 +129,7 @@ CREATE TABLE Cita(
     citHorario varchar(50) 
 );
 
+drop table Cita
 
 
 select * from Paciente
@@ -187,6 +189,8 @@ CREATE TABLE Administrador(
 insert into Administrador VALUES(default,'admin','admin');
 insert into Administrador VALUES(default,'qweqwe','qweqwe');
 
+drop table Administrador
+
 select * from Administrador;
 
 select count(*) from Administrador where admUsuario='admin' and admPasswd='admin';
@@ -209,6 +213,8 @@ CREATE TABLE Profesional(
     proCMP varchar(100) not null unique,
     proEstadoCuenta varchar(20) not null
 );
+
+DROP TABLE Profesional
 
 insert into Profesional VALUES(default,'Frank','Frank','1998-11-10','12366678','M','Jr. unjiron #666','uncorreo@gmail.com','951741852','frank','frank','123123','A');
 
@@ -235,6 +241,8 @@ CREATE TABLE Trabajador(
 	traEstadoCuenta varchar(20) NOT NULL
 );
 
+DROP TABLE Trabajador
+
 insert into Trabajador VALUES(default,'Fredo','Godofredo','12345678','1998-11-10','M','Jr. unjiron #666','uncorreo@gmail.com','951741852','fredo','fredo','A');
 
 select * from Trabajador;
@@ -259,6 +267,8 @@ CREATE TABLE Historia(
     hisTratamiento varchar(200) 
 );
 
+DROP TABLE Historia
+
 insert into Historia values(default,'No sé',1,'Ni idea','Ni idea','NULL','NO se','F')
 
 select * from Historia
@@ -272,6 +282,8 @@ CREATE TABLE Pago(
 	pagFecha date NULL
 );
 
+DROP TABLE PAGO
+
 insert into Pago values(default,1,"Pendiente","C//Image.png",0,'1998-11-10')
 select * from Pago
 
@@ -282,7 +294,7 @@ CREATE TABLE DetallePago(
     detMonto int NULL
 );
 
-
+DROP table DetallePago
 
 insert into DetallePago values(default,1,"Consulta",100)
 
@@ -299,12 +311,18 @@ select * from DetallePago where idCita = 13
 select * from Cita
 
 select 
-idPago,pacNombres,pacApellidos,pacDni,pagFecha,citHorario,citMotivo,pagEstado
+Pago.idCita ,pacNombres,pacApellidos,pacDni,pagFecha,citHorario,citMotivo,pagEstado
  from Pago join Cita on Pago.idCita = Cita.idCita join Paciente on Cita.idPaciente=Paciente.idPaciente
 
 
 select * from Paciente
 
-select * from Pago
+select * from Pago where idPago = 1
 
+select * from Pago join Cita on Pago.idCita = Cita.idCita join Paciente on Cita.idPaciente=Paciente.idPaciente join DetallePago on DetallePago.idCita=Cita.idCita
 
+select * from Cita join Paciente on Cita.idPaciente = Paciente.idPaciente where Cita.idCita = 2
+
+select * from Paciente where idPaciente = (select idPaciente from Cita where idCita = 2)
+
+update Cita set citEstado = 'Confirmado' where idCita=

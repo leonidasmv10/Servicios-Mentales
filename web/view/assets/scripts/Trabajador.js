@@ -132,10 +132,10 @@ class Trabajador
                 {
                     data: "idCita", width: "15%", orderable: false,
                     render: function (d, t, r) {
-                        
-                        if(r.estado == "Pendiente")
+
+                        if (r.estado == "Pendiente")
                         {
-                            return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="trabajador.enviarCitaID('+d+');" value="Verificar Pago">';
+                            return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="trabajador.enviarCitaID(' + d + ',' + r.idPago + ');" value="Verificar Pago">';
                         }
                         return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="" value="Ver Boleta">';
                     }
@@ -146,30 +146,29 @@ class Trabajador
             },
         });
     }
-    
-    
-    enviarCitaID(idCita)
-    {
-        alert("ID CITA ES: "+idCita);
-        
-         $.ajax({
-                url: 'http://localhost:8080/Servicios_Mentales/EnviarCitaAdministrador',
-                data: {
-                    idCita: idCita,
-                },
-                method: 'POST',
-                success: function (data) {
-                    //var ap = JSON.parse(data);
-                    console.log(data);
-                    alert(data);
-                }
-            });
 
-            window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/VerificarPago.jsp";
-        
-        
+    enviarCitaID(idCita, idPago)
+    {
+        alert("ID CITA ES: " + idCita);
+
+        $.ajax({
+            url: 'http://localhost:8080/Servicios_Mentales/EnviarCitaAdministrador',
+            data: {
+                idCita: idCita,
+                idPago: idPago
+            },
+            method: 'POST',
+            success: function (data) {
+                //var ap = JSON.parse(data);
+                console.log(data);
+                alert(data);
+            }
+        });
+
+        window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/VerificarPago.jsp";
+
+
     }
-    
 
 }
 

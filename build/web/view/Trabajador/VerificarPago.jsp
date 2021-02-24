@@ -17,8 +17,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
         <title>.: VERIFICAR PAGO :.</title>
         <link rel="shortcut icon" href="../imgs/icono_title.png">
     </head>
@@ -120,7 +121,7 @@
                                 </thead>
                                 <%while (it.hasNext()) {
 
-                                                DetalleDePago detalle = it.next();%>
+                                        DetalleDePago detalle = it.next();%>
 
                                 <tr>
 
@@ -148,7 +149,7 @@
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;                                                                        
-                                <button type="submit" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Confirmar Pago</strong></button>
+                                <button type="submit" id="idConfirmar" style="color:black; background-color: rgb(70, 206, 17);" class="btn btn-success"><strong>Confirmar Pago</strong></button>
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
@@ -228,30 +229,33 @@
                     </div>
                     <div class="modal-body">
                         <center>
-                            <img src="../imgs/comprobante.jpg" alt="" width="90%">
-                            </div>
-                            </div>
-                            </div>
-                            </div>
+                            <img src="${pago.getImagen()}" alt="" width="90%">
+                            <h2>${pago.getImagen()}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                            <script>
-                                // Write on keyup event of keyword input element
-                                $(document).ready(function () {
-                                    $("#search").keyup(function () {
-                                        _this = this;
-                                        // Show only matching TR, hide rest of them
-                                        $.each($("#mytable tbody tr"), function () {
-                                            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                                                $(this).hide();
-                                            else
-                                                $(this).show();
-                                        });
-                                    });
-                                });
-                            </script>
+                    
+                    
 
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-                            </body>
-                            </html>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+        <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
+        <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+        
+        <script src="../assets/scripts/Pago.js" type="text/javascript"></script>
+        
+    </body>
+</html>

@@ -8,6 +8,15 @@ $(document).ready(function () {
         pago.guardar();
 
     });
+    
+     $('#idConfirmar').click(function (e) {
+        e.preventDefault();
+        alert("Confirmando");
+        pago.modificarEstado();
+
+    });
+    
+    
 
 
 });
@@ -35,7 +44,22 @@ var Pago = function () {
 
 
         },
+        
+        modificarEstado:function()
+        {
+            $.ajax({
+                url: 'http://localhost:8080/Servicios_Mentales/ModificarEstadoAdministrador',
+                method: 'POST',
+                success: function (data) {
+                    //var ap = JSON.parse(data);
+                    console.log(data);
+                    alert(data);
+                }
+            });
+        }
 
+
+        
         
 
       

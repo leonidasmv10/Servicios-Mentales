@@ -7,8 +7,10 @@ package Controllers;
 
 import Entidades.DetalleDePago;
 import Entidades.Paciente;
+import Entidades.Pago;
 import Models.DetalleDePagoDAO;
 import Models.PacienteDAO;
+import Models.PagoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -83,14 +85,19 @@ public class EnviarCitaAdministrador extends HttpServlet {
         
         String id = request.getParameter("idCita");
         int idCita = Integer.parseInt(id);
+        
+        String id2 = request.getParameter("idPago");
+        int idPago = Integer.parseInt(id2);
 
         LinkedList<DetalleDePago> detalleDePagos;
         Paciente paciente = new Paciente();
+        Pago pago;
        
 
         try {
             detalleDePagos = new DetalleDePagoDAO().obtenerListaPorIdCita(idCita);           
             paciente = new PacienteDAO().obtenerPorIdCita(idCita);
+            pago = new PagoDAO().obtenerPorId(idPago);
             
             HttpSession sesion = request.getSession();
 
@@ -100,6 +107,7 @@ public class EnviarCitaAdministrador extends HttpServlet {
             sesion.setAttribute("totalPagar", totalPagar);
             sesion.setAttribute("idCita", idCita);
             sesion.setAttribute("paciente", paciente);
+            sesion.setAttribute("pago", pago);
             
             
         } catch (ClassNotFoundException ex) {

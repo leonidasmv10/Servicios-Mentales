@@ -71,4 +71,34 @@ public class PagoDAO {
         return array;
     }
 
+    public Pago obtenerPorId(int id) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        Pago pago = new Pago();
+
+        try {
+
+            String consultaSQL = String.format("select * from Pago where idPago = %d", id);
+
+            GestorSQL.Instance().abrirConexion();
+            ResultSet resultado = GestorSQL.Instance().ejecutarConsulta(consultaSQL, true);
+
+            while (resultado.next()) {
+
+                pago.setIdPago(resultado.getInt("idPago"));
+                pago.setIdCita(resultado.getInt("idCita"));
+                pago.setEstado(resultado.getString("pagEstado"));
+                pago.setImagen(resultado.getString("pagImagen"));
+                pago.setIdCajero(resultado.getInt("idCajero"));
+                pago.setFecha(resultado.getString("pagFecha"));
+
+            }
+
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ApoderadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pago;
+    }
+
 }

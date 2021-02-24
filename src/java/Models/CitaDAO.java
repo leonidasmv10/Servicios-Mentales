@@ -192,4 +192,21 @@ public class CitaDAO implements ICitaDAO {
         return id;
     }
 
+    public void modificarEstadoPorId(String estado, int id) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+
+        String consultaSQL = String.format("update Cita set citEstado = '%s' where idCita=%d",
+                estado, id);
+
+        try {
+
+            GestorSQL.Instance().abrirConexion();
+            GestorSQL.Instance().ejecutarConsulta(consultaSQL, false);
+            GestorSQL.Instance().cerrarConexion();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CitaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 }
