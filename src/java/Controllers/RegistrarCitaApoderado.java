@@ -7,9 +7,12 @@ package Controllers;
 
 import Entidades.Apoderado;
 import Entidades.Cita;
+import Entidades.DetalleDePago;
 import Models.CitaDAO;
+import Models.DetalleDePagoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -73,32 +76,48 @@ public class RegistrarCitaApoderado extends HttpServlet {
         String fecha = request.getParameter("fecha");
         String idDoctor = request.getParameter("idDoctor");
         String horario = request.getParameter("horario");
-        
+
         Apoderado apoderado = (Apoderado) request.getSession().getAttribute("apoderado");
-        
-        
+
         Cita cita = new Cita();
         cita.setMotivo(motivo);
         cita.setFecha(fecha);
         cita.setIdDoctor(Integer.parseInt(idDoctor));
         cita.setHorario(horario);
         cita.setIdPaciente(apoderado.getIdPaciente());
-        
+
         try {
-            
+
             new CitaDAO().insertar(cita);
-            
+            int idCita = new CitaDAO().obtenerLastID();
+            DetalleDePago detalleDePago = new DetalleDePago();
+
+            detalleDePago.setServicio("Consulta psiquiátrica");
+            detalleDePago.setMonto(100);
+            detalleDePago.setIdCita(idCita);
+
+            new DetalleDePagoDAO().insertar(detalleDePago);
+
+            if (!cita.getMotivo().equals("Consulta")) {
+
+                detalleDePago.setServicio("Certificado Médico");
+                detalleDePago.setMonto(50);
+                detalleDePago.setIdCita(idCita);
+
+                new DetalleDePagoDAO().insertar(detalleDePago);
+            }
+
             response.getWriter().write("INSERTANDO CITA");
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(RegistrarCitaApoderado.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             Logger.getLogger(RegistrarCitaApoderado.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             Logger.getLogger(RegistrarCitaApoderado.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistrarCitaApoderado.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
 
     }
 

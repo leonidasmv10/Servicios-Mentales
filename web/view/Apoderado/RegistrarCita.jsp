@@ -1,3 +1,13 @@
+
+<%@page import="java.util.Iterator"%>
+<%@page import="Entidades.Profesional"%>
+<%@page import="java.util.LinkedList"%>
+
+<%
+    LinkedList<Profesional> listaProfesionales = (LinkedList) request.getSession().getAttribute("profesionales");
+    Iterator<Profesional> it = listaProfesionales.iterator();
+%>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -93,12 +103,23 @@
                 <td>
                     <label>Médico:</label>
                     <select name="medico" id="idMedico" class="form-control">
-                        <option value="1">Ghaal Grishnack</option>
-                        <option value="2">Yugi Kuruzaki</option>
-                        <option value="3">Lucifer Chavez</option>
-                        <option value="4">Estrella Garcia</option>
+
+
+                        <%while (it.hasNext()) {
+                                 Profesional profesional = it.next();%>
+
+                        <option value=<%= profesional.getIdProfesional()%>>
+                            <%= profesional.getNombres()%> <%= profesional.getApellidos()%> 
+                        </option>
+
+                        <%}%>  
                     </select>                       
                 </td>
+
+
+
+
+
                 <td>
                     <label>Horarios disponibles:</label>
                     <select id="idHorario" class="form-control">

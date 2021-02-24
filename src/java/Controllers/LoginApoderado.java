@@ -8,9 +8,11 @@ package Controllers;
 import Entidades.Anuncio;
 import Entidades.Apoderado;
 import Entidades.Paciente;
+import Entidades.Profesional;
 import Models.AnuncioDAO;
 import Models.ApoderadoDAO;
 import Models.PacienteDAO;
+import Models.ProfesionalDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -81,12 +83,15 @@ public class LoginApoderado extends HttpServlet {
 
             if (login == 1) {
                 Apoderado apoderado = new ApoderadoDAO().obtener(usuario);
+                LinkedList<Profesional> profesionales = new ProfesionalDAO().obtenerLista();
+
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("idApoderado", apoderado.getIdApoderado());
+                sesion.setAttribute("apoderado", apoderado);
+                sesion.setAttribute("profesionales", profesionales);
+
                 String JSON = new Gson().toJson(apoderado);
                 response.getWriter().write(JSON);
-
-                HttpSession sesion = request.getSession();             
-                sesion.setAttribute("idApoderado",apoderado.getIdApoderado());
-                sesion.setAttribute("apoderado", apoderado);
 
             } else {
                 response.getWriter().write("NULL");

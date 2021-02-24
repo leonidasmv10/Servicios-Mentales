@@ -1,6 +1,9 @@
 $(document).ready(function () {
 
-    var trabajador = new Trabajador();
+    trabajador = new Trabajador();
+
+    trabajador.listarPagos();
+
     $('#btnIngresar').click(function (e) {
         e.preventDefault();
 
@@ -103,6 +106,70 @@ class Trabajador
             }
         });
     }
+
+    listarPagos()
+    {
+        $("#table_pago_cajero").DataTable({
+
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'pdf'
+            ],
+            ajax:
+                    {
+                        method: "GET",
+                        url: "http://localhost:8080/Servicios_Mentales/PagoTrabajador",
+                        dataSrc: "datos"
+                    },
+            columns: [
+                {data: "nombres"},
+                {data: "apellidos"},
+                {data: "dni"},
+                {data: "fecha"},
+                {data: "horario"},
+                {data: "motivo"},
+                {data: "estado"},
+                {
+                    data: "idCita", width: "15%", orderable: false,
+                    render: function (d, t, r) {
+                        
+                        if(r.estado == "Pendiente")
+                        {
+                            return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="trabajador.enviarCitaID('+d+');" value="Verificar Pago">';
+                        }
+                        return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="" value="Ver Boleta">';
+                    }
+                }
+            ],
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+            },
+        });
+    }
+    
+    
+    enviarCitaID(idCita)
+    {
+        alert("ID CITA ES: "+idCita);
+        
+         $.ajax({
+                url: 'http://localhost:8080/Servicios_Mentales/EnviarCitaAdministrador',
+                data: {
+                    idCita: idCita,
+                },
+                method: 'POST',
+                success: function (data) {
+                    //var ap = JSON.parse(data);
+                    console.log(data);
+                    alert(data);
+                }
+            });
+
+            window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/VerificarPago.jsp";
+        
+        
+    }
+    
 
 }
 

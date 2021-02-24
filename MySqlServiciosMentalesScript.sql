@@ -52,6 +52,12 @@ create table Paciente(
     pacNivelAcademico varchar(50) 
 );
 
+
+select * from Paciente
+
+
+
+
 insert into Anuncio values (default,'Titulo 1', 'Descripion 1','Novedad','v',1);
 insert into Anuncio values (default,'Titulo 2', 'Descripion 2','Novedad','v',1);
 insert into Anuncio values (default,'Titulo 3', 'Descripion 3','Anuncio','v',1);
@@ -122,6 +128,28 @@ CREATE TABLE Cita(
     citHorario varchar(50) 
 );
 
+
+
+select * from Paciente
+
+select * from Cita
+
+select * from Profesional
+
+select * from Profesional where idProfesional = (select idCita from Cita where idPaciente = 7)
+
+SELECT idCita,proNombres,citFecha,citHorario,citMotivo,citEstado
+FROM Profesional 
+INNER JOIN Cita 
+ON 1 = Cita.idCita 
+
+select 
+idCita,
+(select proNombres from Profesional where idProfesional=idDoctor) as proNombres,
+citFecha,citHorario,citMotivo,citEstado
+from Cita where idPaciente = 7
+
+
 insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Reservado');
 insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Reservado N');
 insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Atendido');
@@ -130,6 +158,9 @@ insert into Cita(citFecha,citHorario,citMotivo,citEstado) values('2000-01-01','0
 insert into Cita(citMotivo,citFecha,citEstado,citEstado,idDoctor) values('2000-01-01','03:00 PM - 05:00 PM','Consulta','Atendido');
 
 select * from Cita where idPaciente = 7
+(select idDoctor from Cita where idPaciente = 7)
+
+
 
 update Cita set idDoctor = 1 where idCita=1
 
@@ -140,6 +171,7 @@ select * from Cita where idDoctor = 1 and citEstado!='Reservado N'
 select * from Cita where idDoctor = 1
 
 select * from Cita
+
 
 
 
@@ -182,8 +214,6 @@ insert into Profesional VALUES(default,'Frank','Frank','1998-11-10','12366678','
 
 select * from Profesional;
 
-
-
 select count(*) from Profesional where proUsuario='frank' and proPasswd='frank'
 
 select * from Profesional where proUsuario='frank'
@@ -205,10 +235,11 @@ CREATE TABLE Trabajador(
 	traEstadoCuenta varchar(20) NOT NULL
 );
 
-insert into Trabajador VALUES(default,'Fredo','Godofredo','12345678','1998-11-10','M',
-'Jr. unjiron #666','uncorreo@gmail.com','951741852','fredo','fredo','A');
+insert into Trabajador VALUES(default,'Fredo','Godofredo','12345678','1998-11-10','M','Jr. unjiron #666','uncorreo@gmail.com','951741852','fredo','fredo','A');
 
 select * from Trabajador;
+
+
 
 
 
@@ -231,4 +262,49 @@ CREATE TABLE Historia(
 insert into Historia values(default,'No sé',1,'Ni idea','Ni idea','NULL','NO se','F')
 
 select * from Historia
+
+CREATE TABLE Pago(
+	idPago int auto_increment PRIMARY KEY,
+	idCita int NULL,
+	pagEstado varchar(50) NULL,
+	pagImagen varchar(50) NULL,
+	idCajero int NULL,
+	pagFecha date NULL
+);
+
+insert into Pago values(default,1,"Pendiente","C//Image.png",0,'1998-11-10')
+select * from Pago
+
+CREATE TABLE DetallePago(
+    idDetallePago int auto_increment PRIMARY KEY,
+    idCita int NULL,
+    detServicio varchar(100) NULL,
+    detMonto int NULL
+);
+
+
+
+insert into DetallePago values(default,1,"Consulta",100)
+
+select * from DetallePago 
+select * from Cita 
+
+select idCita from Cita order by idCita desc limit 1;
  
+ 
+select idCita from Cita order by idCita desc limit 1;
+
+select * from DetallePago where idCita = 13
+
+select * from Cita
+
+select 
+idPago,pacNombres,pacApellidos,pacDni,pagFecha,citHorario,citMotivo,pagEstado
+ from Pago join Cita on Pago.idCita = Cita.idCita join Paciente on Cita.idPaciente=Paciente.idPaciente
+
+
+select * from Paciente
+
+select * from Pago
+
+
