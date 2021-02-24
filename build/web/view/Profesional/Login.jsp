@@ -12,23 +12,23 @@
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/login.css">
-  <link rel="shortcut icon" href="../imgs/icono_title.png">
+  <link rel="stylesheet" href="../assets/css/login.css">
+  <link rel="shortcut icon" href="../assets/imgs/icono_title.png">
 </head>
 <body>
   <main>
     <div class="container-fluid">
       <div class="row">             
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="../imgs/frm_login.jpg" alt="login image" class="login-img">
+          <img src="../assets/imgs/frm_login.jpg" alt="login image" class="login-img">
         </div>
         <div class="col-sm-6 login-section-wrapper" style="align-items: center; align-content: center; text-align: center;">          
           <div class="login-wrapper">
-            <img src="../imgs/login_medico.png" width="50%"> 
+            <img src="../assets/imgs/login_medico.png" width="50%"> 
             <br>
             <br>
             <h1 class="login-title">Iniciar sesión</h1>
-            <form action="Login.jsp" method="post">
+            <form>
               <div class="form-group">
                 <label for="email">Usuario</label>
                 <input  required type="text" id="usuario" class="form-control" placeholder="Ingrese su nombre de usuario">

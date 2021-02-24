@@ -7,11 +7,8 @@ $(document).ready(function () {
     $('#btnIngresar').click(function (e) {
         e.preventDefault();
 
-        var jsonTrabajador = trabajador.iniciarSesion();
+        trabajador.iniciarSesion();
 
-
-        console.log(objTrabajador);
-        alert("ruta es: ");
     });
 
     $('#buttonAdd').click(function (e) {
@@ -43,10 +40,6 @@ class Trabajador
         var usuario = $("#usuario").val();
         var password = $("#password").val();
 
-        var trabajador;
-
-
-
         $.ajax({
             url: 'http://localhost:8080/Servicios_Mentales/LoginTrabajador',
             data: {
@@ -55,25 +48,19 @@ class Trabajador
             },
             method: 'POST',
             dataType: "json",
-            async: false,
+            //async: false,
             success: function (data) {
 
                 if (data == "NULL") {
-                    window.location = "http://localhost:8080/Servicios_Mentales/index.jsp";
+                    window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/Login.jsp";
                 } else {
 
-                    //console.log(data);
-                    trabajador = data;
-                    //console.log(trabajador);
                     window.location = "http://localhost:8080/Servicios_Mentales/view/Trabajador/Home.jsp";
-                    $('#idUserTrabajador').html('Hooola ' + trabajador.nombres);
+
                 }
             }
         });
 
-
-
-        return trabajador;
 
     }
 
@@ -102,7 +89,9 @@ class Trabajador
             success: function (data) {
                 //var ap = JSON.parse(data);
                 console.log(data);
-                alert(data);
+                 window.location = "http://localhost:8080/Servicios_Mentales/view/Administrador/Trabajador.jsp";
+               
+                //alert(data);
             }
         });
     }
@@ -149,7 +138,7 @@ class Trabajador
 
     enviarCitaID(idCita, idPago)
     {
-        alert("ID CITA ES: " + idCita);
+        //alert("ID CITA ES: " + idCita);
 
         $.ajax({
             url: 'http://localhost:8080/Servicios_Mentales/EnviarCitaAdministrador',
@@ -161,7 +150,7 @@ class Trabajador
             success: function (data) {
                 //var ap = JSON.parse(data);
                 console.log(data);
-                alert(data);
+                //alert(data);
             }
         });
 

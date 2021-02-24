@@ -16,19 +16,19 @@
         <meta name="Description" content="Enter your description here"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
         <title>.: VERIFICAR PAGO :.</title>
-        <link rel="shortcut icon" href="../imgs/icono_title.png">
+        <link rel="shortcut icon" href="../assets/imgs/icono_title.png">
     </head>
     <body>
 
         <!--NAVBAR Superior-->
         <nav class="sb-topnav navbar navbar-expand navbar-primary bg-primary">
             <a class="navbar-brand" style="color: white;" href="Home.html">
-                <img src="../imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
+                <img src="../assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
                 <i><strong>Servicios Mentales</strong></i>
             </a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
@@ -37,7 +37,7 @@
                 <div class="input-group">
                     <div class="input-group-append">
                         <a style="color: white;" class="nav-link" href="Login.jsp">
-                            <img style="filter: invert(120);" src="../imgs/loguot.png" alt="logo"
+                            <img style="filter: invert(120);" src="../assets/imgs/loguot.png" alt="logo"
                                  style=" align-items: center;" height="25px" width="25px">
                             <strong>Salir</strong></a>
                     </div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="nav-item btn">
                         <a class="nav-link active" href="Home.html" style="color: white;">
-                            <img src="../imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px"
+                            <img src="../assets/imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px"
                                  width="50px">
                             Inicio
                         </a>
@@ -65,7 +65,7 @@
                     <br>
                     <div class="nav-item btn ">
                         <a class="nav-link active" href="Caja.html" style="color: white;">
-                            <img src="../imgs/icono_caja.png" alt="logo" style=" align-items: center;" height="50px"
+                            <img src="../assets/imgs/icono_caja.png" alt="logo" style=" align-items: center;" height="50px"
                                  width="50px">
                             Caja
                         </a>
@@ -78,7 +78,7 @@
                 <!--Contenido-->                  
                 <div style="text-align: center; align-items: center;">
                     <br>
-                    <img src="../imgs/frm_pago.png" alt="LogoPago" width="13%">
+                    <img src="../assets/imgs/frm_pago.png" alt="LogoPago" width="13%">
                     <br>
                     <h3 style="color:rgb(29, 140, 184);"><strong>VERIFICAR PAGO</strong></h3>
                     <br>                           
@@ -154,7 +154,7 @@
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;                                        
-                                <a href="Caja.html" class="btn btn-danger"><strong>Regresar</strong></a>
+                                <a href="http://localhost:8080/Servicios_Mentales/view/Trabajador/Caja.jsp" class="btn btn-danger"><strong>Regresar</strong></a>
                             </div>                                
                         </div>                            
                         <br>

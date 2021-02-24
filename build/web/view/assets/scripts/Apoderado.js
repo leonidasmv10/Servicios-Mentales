@@ -5,10 +5,11 @@ $(document).ready(function () {
         e.preventDefault();
         apoderado.iniciarSesion();
     });
-    
+
     $('#registrar').click(function (e) {
         e.preventDefault();
         apoderado.guardar();
+       
     });
 
     $('#idDatosDeAfiliacion').click(function (e) {
@@ -19,30 +20,30 @@ $(document).ready(function () {
         //var id = apoderado.obtenerID();
 
         var apo = apoderado.obtener();
-        alert("ID PACIENTE: " + apo.idPaciente)
+        //alert("ID PACIENTE: " + apo.idPaciente)
         console.log(apo);
 
         if (apo.idPaciente == 0)
         {
             window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/RegistrarDatosDeAfiliacion.jsp";
-        }else
+        } else
         {
-           
+
             window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/DatosDeAfiliacion.jsp";
-           
+
         }
 
 
     });
 
-    
-    
+
+
 });
 
 
 class Apoderado
 {
-    apoderado = "";
+   
     constructor()
     {
         if (Apoderado.instance instanceof Apoderado)
@@ -67,11 +68,11 @@ class Apoderado
             success: function (data) {
 
                 if (data == "NULL") {
-                    window.location = "http://localhost:8080/Servicios_Mentales/index.jsp";
+                    window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/Login.jsp";
                 } else {
-                    this.apoderado = JSON.parse(data);
-                    console.log(this.apoderado);
-                    alert(Number(this.apoderado.idApoderado));
+                  
+                    console.log(data);
+                    //alert(Number(this.apoderado.idApoderado));
                     window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp";
 
                 }
@@ -80,9 +81,6 @@ class Apoderado
 
     }
 
-    get() {
-        return this.apoderado;
-    }
 
     guardar() {
 
@@ -103,7 +101,7 @@ class Apoderado
             success: function (data) {
                 var ap = JSON.parse(data);
                 console.log(ap);
-                alert(ap);
+                 window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/Login.jsp";
             }
         });
     }
@@ -137,10 +135,10 @@ class Apoderado
         });
         return obj;
     }
-    
+
     modificar()
     {
-        
+
     }
 
 }

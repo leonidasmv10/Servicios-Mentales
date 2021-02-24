@@ -8,18 +8,18 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <title>.: BIENVENIDO :.</title>
-    <link rel="shortcut icon" href="../imgs/icono_title.png">
+    <link rel="shortcut icon" href="../assets/imgs/icono_title.png">
 </head>
 <body>
 
     <!--NAVBAR Superior-->
     <nav class="sb-topnav navbar navbar-expand navbar-primary bg-primary">
-        <a class="navbar-brand" style="color: white;" href="Home.html">
-            <img src="../imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
+        <a class="navbar-brand" style="color: white;" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Home.jsp">
+            <img src="../assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
             <i><strong>Servicios Mentales</strong></i>
         </a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
@@ -28,7 +28,7 @@
             <div class="input-group">
                 <div class="input-group-append">
                     <a style="color: white;" class="nav-link" href="Login.jsp">
-                        <img style="filter: invert(120);" src="../imgs/loguot.png" alt="logo"
+                        <img style="filter: invert(120);" src="../assets/imgs/loguot.png" alt="logo"
                             style=" align-items: center;" height="25px" width="25px">
                         <strong>Salir</strong></a>
                 </div>
@@ -47,16 +47,16 @@
                         <br>
                     </div>
                 <div class="nav-item btn">
-                    <a class="nav-link active" href="Home.html" style="color: white;">
-                        <img src="../imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px"
+                    <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Home.jsp" style="color: white;">
+                        <img src="../assets/imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px"
                             width="50px">
                         Inicio
                     </a>
                 </div>
                 <br>
                 <div class="nav-item btn ">
-                    <a class="nav-link active" href="PacientesIndex.html" style="color: white;">
-                        <img src="../imgs/icono_paciente.png" alt="logo" style=" align-items: center;" height="40px"
+                    <a class="nav-link active" href="" style="color: white;">
+                        <img src="../assets/imgs/icono_paciente.png" alt="logo" style=" align-items: center;" height="40px"
                             width="40px">
                         Pacientes
                     </a>
@@ -64,7 +64,7 @@
                 <br>
                 <div class="nav-item btn">
                     <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Cita.jsp" style="color: white;">
-                        <img src="../imgs/icono_citas.png" alt="logo" style=" align-items: center;" height="50px"
+                        <img src="../assets/imgs/icono_citas.png" alt="logo" style=" align-items: center;" height="50px"
                             width="50px">
                         Citas
                     </a>

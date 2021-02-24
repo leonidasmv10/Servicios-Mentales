@@ -16,16 +16,16 @@
         <meta name="Description" content="Enter your description here" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
         <title>.: PAGAR SERVICIO :.</title>
-        <link rel="shortcut icon" href="../imgs/icono_title.png">
+        <link rel="shortcut icon" href="../assets/imgs/icono_title.png">
     </head>
     <body>
 
         <!--Barra de navegacion-->
         <nav class="navbar navbar-expand-lg" style="background-color: rgb(29, 140, 184);">
-            <a class="navbar-brand" style="color: white;" href="Home.html">
-                <img src="../imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
+            <a class="navbar-brand" style="color: white;" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
+                <img src="../assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
                 <i><strong>Servicios Mentales</strong></i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -34,21 +34,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item active">
-                    <a style="color: white;" class="nav-link" href="Home.html">
-                        <img src="../imgs/icono_home.png" width="30px">
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
+                        <img src="../assets/imgs/icono_home.png"  style="width:30px">
                         Inicio
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a style="color: white;" class="nav-link" href="DatosPaciente.html">
-                        <img src="../imgs/icono_paciente.png" width="30px">
+                    <a style="color: white;" class="nav-link" name ="datosFiliacion" id="idDatosDeAfiliacion" href="">
+                        <img src="../assets/imgs/icono_paciente.png" style="width:30px">
                         Datos de filiación
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a style="color: white;" class="nav-link" href="CitasIndex.html">
-                        <img src="../imgs/icono_citas.png" width="30px">
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Cita.jsp">
+                        <img src="../assets/imgs/icono_citas.png" style="width:30px">
                         Citas
                     </a>
                 </li>
@@ -60,7 +61,7 @@
                 &nbsp;
                 <li class="nav-item ">
                     <a style="color: white;" class="nav-link" href="Login.jsp">
-                        <img style="filter: invert(120);" src="../imgs/loguot.png" alt="logo" style=" align-items: center;"
+                        <img style="filter: invert(120);" src="../assets/imgs/loguot.png" alt="logo" style=" align-items: center;"
                              height="25px" width="25px">
                         <strong>Salir</strong></a>
                 </li>
@@ -72,7 +73,7 @@
     <div style="text-align: center; align-items: center;">
         <br>
         <br>
-        <img src="../imgs/frm_pago.png" alt="Citas" width="13%">
+        <img src="../assets/imgs/frm_pago.png" alt="Citas" width="13%">
         <br>
         <br>
         <h3 style="color:rgb(29, 140, 184);"><strong>PAGO DE SERVICIO</strong></h3>
@@ -141,7 +142,7 @@
                 &nbsp;
                 &nbsp;
                 &nbsp;
-                <a class="btn btn-danger" href="CitasIndex.html"><strong>Regresar</strong></a>            
+                <a class="btn btn-danger" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Cita.jsp"><strong>Regresar</strong></a>            
             </center>
         </div>
     </form>
@@ -205,6 +206,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script src="../assets/scripts/Pago.js" type="text/javascript"></script>
-    
+
 </body>
 </html>

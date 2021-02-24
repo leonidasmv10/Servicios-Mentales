@@ -3,7 +3,7 @@ $(document).ready(function () {
     cita = new Cita();
     cita.listar();
     cita.listar_doctor();
-    
+
 
 
     $('#submitCita').click(function (e) {
@@ -37,7 +37,8 @@ var Cita = function () {
                 success: function (data) {
                     //var ap = JSON.parse(data);
                     console.log(data);
-                    alert(data);
+                    //alert(data);
+                    window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/Cita.jsp";
                 }
             });
 
@@ -66,19 +67,21 @@ var Cita = function () {
                     {
                         data: "idCita", width: "15%", orderable: false,
                         render: function (d, t, r) {
-                            
-                            if(r.estado == "Atendido")
+
+                            if (r.estado == "Atendido")
                             {
                                 return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="" value="Ver Boleta">';
-                            }
-                            else if(r.estado == "Reservado")
+                            } else if (r.estado == "Reservado")
                             {
-                                return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="cita.enviarCitaID('+d+')" value="Pagar">'+
+                                return '<input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="cita.enviarCitaID(' + d + ')" value="Pagar">' +
                                         '    <input type="submit" style="background-color: rgb(70, 206, 17); color:black" class="btn btn-success" onclick="" value="Anular">';
+                            } else
+                            {
+                                return '';
                             }
-                            
-                            
-                            
+
+
+
                         }
                     }
                 ],
@@ -87,11 +90,11 @@ var Cita = function () {
                 },
             });
         },
-        
-         enviarCitaID: function (idCita) {
+
+        enviarCitaID: function (idCita) {
 
 
-            alert("ID ANUNCIO: " + idCita);
+            //alert("ID ANUNCIO: " + idCita);
 
             $.ajax({
                 url: 'http://localhost:8080/Servicios_Mentales/EnviarCitaApoderado',
@@ -102,14 +105,13 @@ var Cita = function () {
                 success: function (data) {
                     //var ap = JSON.parse(data);
                     console.log(data);
-                    alert(data);
+                    //alert(data);
                 }
             });
 
             window.location = "http://localhost:8080/Servicios_Mentales/view/Apoderado/PagarCita.jsp";
 
         },
-        
 
         listar_doctor: function () {
             $("#table_doctor").DataTable({
@@ -153,7 +155,7 @@ var Cita = function () {
 
         atender: function (idCita) {
 
-            alert("El id de la cita es: " + idCita);
+            //alert("El id de la cita es: " + idCita);
 
             $.ajax({
                 url: 'http://localhost:8080/Servicios_Mentales/AtenderPaciente',
@@ -164,7 +166,7 @@ var Cita = function () {
                 success: function (data) {
                     //var ap = JSON.parse(data);
                     console.log(data);
-                    alert(data);
+                   // alert(data);
                 }
             });
 

@@ -11,7 +11,7 @@ $(document).ready(function () {
     
      $('#idConfirmar').click(function (e) {
         e.preventDefault();
-        alert("Confirmando");
+        //alert("Confirmando");
         pago.modificarEstado();
 
     });
@@ -38,7 +38,7 @@ var Pago = function () {
                 success: function (data) {
                     //var ap = JSON.parse(data);
                     console.log(data);
-                    alert(data);
+                    //alert(data);
                 }
             });
 
@@ -53,7 +53,7 @@ var Pago = function () {
                 success: function (data) {
                     //var ap = JSON.parse(data);
                     console.log(data);
-                    alert(data);
+                    //alert(data);
                 }
             });
         }

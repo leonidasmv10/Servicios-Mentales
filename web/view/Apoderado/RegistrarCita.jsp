@@ -16,9 +16,9 @@
         <meta name="Description" content="Enter your description here" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-        <link rel="stylesheet" href="view/assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
         <title>.: REGISTRAR CITA :.</title>
-        <link rel="shortcut icon" href="view/assets/imgs/icono_title.png">
+        <link rel="shortcut icon" href="../assets/imgs/icono_title.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
@@ -28,8 +28,8 @@
 
         <!--Barra de navegacion-->
         <nav class="navbar navbar-expand-lg" style="background-color: rgb(29, 140, 184);">
-            <a class="navbar-brand" style="color: white;" href="Home.html">
-                <img src="view/assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
+            <a class="navbar-brand" style="color: white;" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
+                <img src="../assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
                 <i><strong>Servicios Mentales</strong></i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -39,20 +39,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a style="color: white;" class="nav-link" href="Home.html">
-                        <img src="view/assets/imgs/icono_home.png" width="30px">
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
+                        <img src="../assets/imgs/icono_home.png" width="30px">
                         Inicio
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a style="color: white;" class="nav-link" href="DatosPaciente.html">
-                        <img src="view/assets/imgs/icono_paciente.png" width="30px">
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/DatosDeAfiliacion.jsp">
+                        <img src="../assets/imgs/icono_paciente.png" width="30px">
                         Datos de filiación
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a style="color: white;" class="nav-link" href="CitasIndex.html">
-                        <img src="view/assets/imgs/icono_citas.png" width="30px">
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Cita.jsp">
+                        <img src="../assets/imgs/icono_citas.png" width="30px">
                         Citas
                     </a>
                 </li>
@@ -63,8 +63,8 @@
                 &nbsp;
                 &nbsp;
                 <li class="nav-item ">
-                    <a style="color: white;" class="nav-link" href="view/Apoderado/Login.jsp">
-                        <img style="filter: invert(120);" src="view/assets/imgs/loguot.png" alt="logo" style=" align-items: center;"
+                    <a style="color: white;" class="nav-link" href="../Apoderado/Login.jsp">
+                        <img style="filter: invert(120);" src="../assets/imgs/loguot.png" alt="logo" style=" align-items: center;"
                              height="25px" width="25px">
                         <strong>Salir</strong></a>
                 </li>
@@ -76,7 +76,7 @@
     <div style="text-align: center; align-items: center;  align-content: center; align-self: center;">
         <br>
         <br>
-        <img src="view/assets/imgs/frm_citas.png" alt="Citas" width="10%">
+        <img src="../assets/imgs/frm_citas.png" alt="Citas" width="10%">
         <br>
         <br>
         <h3 style="color:rgb(29, 140, 184);"><strong>AGENDAR CITA</strong></h3>                
@@ -148,7 +148,7 @@
     &nbsp;
     &nbsp;
     &nbsp;
-    <a href="CitasIndex.html" class="btn btn-danger"><strong>Cancelar</strong></a>
+    <a href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Cita.jsp" class="btn btn-danger"><strong>Cancelar</strong></a>
 </center>
 </form>
 <br>

@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     $('#buttonModificar').click(function (e) {
 
-        alert("Terminando");
+        //alert("Terminando");
         e.preventDefault();
         anuncio.modificarAnuncio();
 
@@ -112,7 +112,7 @@ var Anuncio = function () {
         enviarAnuncioID: function (idAnuncio) {
 
 
-            alert("ID ANUNCIO: " + idAnuncio);
+            //alert("ID ANUNCIO: " + idAnuncio);
 
             $.ajax({
                 url: 'http://localhost:8080/Servicios_Mentales/EnviarAnuncioAdministrador',
@@ -123,7 +123,7 @@ var Anuncio = function () {
                 success: function (data) {
                     //var ap = JSON.parse(data);
                     console.log(data);
-                    alert(data);
+                    //alert(data);
                 }
             });
 
@@ -145,7 +145,8 @@ var Anuncio = function () {
                 success: function (data) {
                     //var ap = JSON.parse(data);
                     console.log(data);
-                    alert(data);
+                   // alert(data);
+                    window.location = "http://localhost:8080/Servicios_Mentales/view/Administrador/Home.jsp";
                 }
             });
 

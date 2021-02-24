@@ -1,4 +1,4 @@
-    <%@page import="java.sql.*"%>
+<%@page import="java.sql.*"%>
 <%@page import="Models.GestorSQL"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

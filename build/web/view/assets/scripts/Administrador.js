@@ -7,11 +7,11 @@ $(document).ready(function () {
         let adm = new Administrador();
         instancia.iniciarSesion();
         console.log(adm.get());
-        alert(adm.get());
-        $('#userID').val(adm.get().usuario);
+        //alert(adm.get());
+        //$('#userID').val(adm.get().usuario);
 
-        $('#prueba').html("hola pro " + adm.get().usuario);
-        alert("pera p");
+        //$('#prueba').html("hola pro " + adm.get().usuario);
+        //alert("pera p");
 
     });
 });
@@ -47,7 +47,7 @@ class Administrador
             success: function (data) {
 
                 if (data == "NULL") {
-                    window.location = "http://localhost:8080/Servicios_Mentales/index.jsp";
+                    window.location = "http://localhost:8080/Servicios_Mentales/view/Administrador/Login.jsp";
                 } else {
                     this.administrador = JSON.parse(data);
                     //console.log(this.administrador);

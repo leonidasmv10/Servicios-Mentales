@@ -30,8 +30,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <button type="button" id="enviar">Datos</button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown" >

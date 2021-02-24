@@ -6,16 +6,16 @@
         <meta name="Description" content="Enter your description here" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-        <link rel="stylesheet" href="view/assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
         <title>.: ACTUALIZAR PACIENTE :.</title>
-        <link rel="shortcut icon" href="view/assets/imgs/icono_title.png">
+        <link rel="shortcut icon" href="../assets/imgs/icono_title.png">
     </head>
     <body>
 
         <!--Barra de navegacion-->
         <nav class="navbar navbar-expand-lg" style="background-color: rgb(29, 140, 184);">
-            <a class="navbar-brand" style="color: white;" href="Home.html">
-                <img src="view/assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
+            <a class="navbar-brand" style="color: white;" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
+                <img src="../assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
                 <i><strong>Servicios Mentales</strong></i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -25,21 +25,22 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item active">
-                    <a style="color: white;" class="nav-link" href="Home.html">
-                        <img src="view/assets/imgs/icono_home.png" width="30px">
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
+                        <img src="../assets/imgs/icono_home.png"  style="width:30px">
                         Inicio
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a style="color: white;" class="nav-link" href="DatosPaciente.html">
-                        <img src="view/assets/imgs/icono_paciente.png" width="30px">
+                    <a style="color: white;" class="nav-link" name ="datosFiliacion" id="idDatosDeAfiliacion" href="">
+                        <img src="../assets/imgs/icono_paciente.png" style="width:30px">
                         Datos de filiación
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a style="color: white;" class="nav-link" href="CitasIndex.html">
-                        <img src="view/assets/imgs/icono_citas.png" width="30px">
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Cita.jsp">
+                        <img src="../assets/imgs/icono_citas.png" style="width:30px">
                         Citas
                     </a>
                 </li>
@@ -50,8 +51,8 @@
                 &nbsp;
                 &nbsp;
                 <li class="nav-item ">
-                    <a style="color: white;" class="nav-link" href="view/Apoderado/Login.jsp">
-                        <img style="filter: invert(120);" src="view/assets/imgs/loguot.png" alt="logo" style=" align-items: center;"
+                    <a style="color: white;" class="nav-link" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Login.jsp">
+                        <img style="filter: invert(120);" src="../assets/imgs/loguot.png" alt="logo" style=" align-items: center;"
                              height="25px" width="25px">
                         <strong>Salir</strong></a>
                 </li>
@@ -61,7 +62,7 @@
     <div style="text-align: center; align-items: center;">  
         <br>
         <br>
-        <img src="view/assets/imgs/frm_paciente.png" alt="PacienteLogo" width="10%">
+        <img src="../assets/imgs/frm_paciente.png" alt="PacienteLogo" width="10%">
         <br>   
         <br>
         <h3 style="color:rgb(29, 140, 184);"><strong>REGISTRO DE PACIENTE</strong></h3>
@@ -76,7 +77,7 @@
                     <div class="form-group">
                         <label>Nombre(s): </label>
                         <input required type="text" id="nombreT" class=" form-control" placeholder="Ingrese su nombre">
-                         <input id="hdnIdPaciente" type="hidden" />
+                        <input id="hdnIdPaciente" type="hidden" />
                     </div>
                 </td>
                 <td>
@@ -179,7 +180,7 @@
     &nbsp;
     &nbsp;
     &nbsp;
-    <a class="btn btn-danger" href=""><strong>Cancelar</strong></a>
+    <a class="btn btn-danger" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp"><strong>Cancelar</strong></a>
 </form>
 </center>
 <br>

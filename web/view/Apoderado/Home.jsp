@@ -11,9 +11,9 @@
         <meta name="Description" content="Enter your description here"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-        <link rel="stylesheet" href="view/assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
         <title>.: BIENVENIDO :.</title>
-        <link rel="shortcut icon" href="view/assets/imgs/icono_title.png">
+        <link rel="shortcut icon" href="../assets/imgs/icono_title.png">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
@@ -27,7 +27,7 @@
         <form>
             <!--Barra de navegacion-->
             <nav class="navbar navbar-expand-lg" style="background-color: rgb(29, 140, 184);">
-                <a class="navbar-brand" style="color: white;" href="Home.html">
+                <a class="navbar-brand" style="color: white;" href="http://localhost:8080/Servicios_Mentales/view/Apoderado/Home.jsp">
                     <img src="../assets/imgs/frm_home.png" alt="logo" style="align-items: center; height:70px; width:55px">
                     <i><strong>Servicios Mentales</strong></i>
                 </a>

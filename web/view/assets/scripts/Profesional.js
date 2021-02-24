@@ -85,7 +85,8 @@ class Profesional
             success: function (data) {
                 //var ap = JSON.parse(data);
                 console.log(data);
-                alert(data);
+                //alert(data);
+                window.location = "http://localhost:8080/Servicios_Mentales/view/Administrador/Profesional.jsp";
             }
         });
     }
