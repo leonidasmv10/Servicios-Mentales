@@ -6,6 +6,7 @@
 package Models;
 
 import Entidades.Administrador;
+import Interface.IAdministradorDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author yordy
  */
-public class AdministradorDAO {
+public class AdministradorDAO implements IAdministradorDAO{
 
     public int buscar(String usuario, String password) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 

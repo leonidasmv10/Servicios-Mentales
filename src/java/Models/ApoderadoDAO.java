@@ -7,6 +7,7 @@ package Models;
 
 import Entidades.Apoderado;
 import Entidades.Paciente;
+import Interface.IApoderadoDAO;
 import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
  *
  * @author yordy
  */
-public class ApoderadoDAO {
+public class ApoderadoDAO implements IApoderadoDAO{
 
     public void insertar(String nombres, String apellidos, String usuario, String password) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 

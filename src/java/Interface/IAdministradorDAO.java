@@ -5,10 +5,16 @@
  */
 package Interface;
 
+import Entidades.Administrador;
+
 /**
  *
  * @author yordy
  */
 public interface IAdministradorDAO {
+    
+    public int buscar(String usuario, String password) throws ClassNotFoundException, InstantiationException, IllegalAccessException ;
+    
+    public Administrador obtener(String usuario) throws ClassNotFoundException, InstantiationException, IllegalAccessException ;
     
 }

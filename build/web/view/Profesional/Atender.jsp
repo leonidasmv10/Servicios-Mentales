@@ -9,27 +9,27 @@
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
 <title>.: REGISTRAR HISTORIA CLÍNICA :.</title>
-<link rel="shortcut icon" href="../imgs/icono_title.png">
+<link rel="shortcut icon" href="../assets/imgs/icono_title.png">
 </head>
 <body>
 
     <!--NAVBAR Superior-->    
     <nav class="sb-topnav navbar navbar-expand navbar-primary bg-primary">
         <a class="navbar-brand" style="color: white;" href="Home.html">
-            <img src="../imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
+            <img src="../assets/imgs/frm_home.png" alt="logo" style=" align-items: center;" height="70px" width="55px">
             <i><strong>Servicios Mentales</strong></i>
         </a>
         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
                 <div class="input-group-append">
                     <a style="color: white;" class="nav-link" href="Login.jsp">
-                        <img style="filter: invert(120);" src="../imgs/loguot.png" alt="logo"
+                        <img style="filter: invert(120);" src="../assets/imgs/loguot.png" alt="logo"
                             style=" align-items: center;" height="25px" width="25px">
                         <strong>Salir</strong></a>
                 </div>
@@ -41,43 +41,43 @@
         <div class="body row">
             <div class="col-sm-2" style="background-color: rgb(19, 94, 124);">
                 <nav class="navbar-expand navbar-primary flex-column" aria-label="#">
-                    <div class="col-sm-12" style="text-align: center;">
+                <div class="col-sm-12" style="text-align: center;">
                         <br>
                         <label style="color: white"> Bienvenido </label>
                         <input type="text" class="form-control" value="Usuario" disabled>
                         <br>
                     </div>
-                    <div class="nav-item btn">
-                        <a class="nav-link active" href="Home.html" style="color: white;">
-                            <img src="../imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px"
-                                width="50px">
-                            Inicio
-                        </a>
-                    </div>
-                    <br>
-                    <div class="nav-item btn ">
-                        <a class="nav-link active" href="PacientesIndex.html" style="color: white;">
-                            <img src="../imgs/icono_paciente.png" alt="logo" style=" align-items: center;" height="40px"
-                                width="40px">
-                            Pacientes
-                        </a>
-                    </div>
-                    <br>
-                    <div class="nav-item btn">
-                        <a class="nav-link active" href="CitasIndex.html" style="color: white;">
-                            <img src="../imgs/icono_citas.png" alt="logo" style=" align-items: center;" height="50px"
-                                width="50px">
-                            Citas
-                        </a>
-                    </div>    
-                </nav>
+                <div class="nav-item btn">
+                    <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Home.jsp" style="color: white;">
+                        <img src="../assets/imgs/icono_home.png" alt="logo" style=" align-items: center;" height="50px"
+                            width="50px">
+                        Inicio
+                    </a>
+                </div>
+                <br>
+                <div class="nav-item btn ">
+                    <a class="nav-link active" href="" style="color: white;">
+                        <img src="../assets/imgs/icono_paciente.png" alt="logo" style=" align-items: center;" height="40px"
+                            width="40px">
+                        Pacientes
+                    </a>
+                </div>
+                <br>
+                <div class="nav-item btn">
+                    <a class="nav-link active" href="http://localhost:8080/Servicios_Mentales/view/Profesional/Cita.jsp" style="color: white;">
+                        <img src="../assets/imgs/icono_citas.png" alt="logo" style=" align-items: center;" height="50px"
+                            width="50px">
+                        Citas
+                    </a>
+                </div>
+            </nav>
             </div>
                 <div class="col-sm-10">
                     <div class="container" style="align-items: center; align-content: center;">
                         <div style="text-align: center; align-items: center;">
                             <br>
                             <br>
-                            <img src="../imgs/frm_historia.png" alt="Historia" width="15%">
+                            <img src="../assets/imgs/frm_historia.png" alt="Historia" width="15%">
                             <br>
                             <br>
                             <h3 style="color:rgb(29, 140, 184);"><strong>ATENDER CITA</strong></h3>

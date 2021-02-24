@@ -8,6 +8,7 @@ package Models;
 import java.util.LinkedList;
 import Entidades.Anuncio;
 import Entidades.Apoderado;
+import Interface.IAnuncioDAO;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import static java.lang.System.out;
@@ -16,7 +17,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AnuncioDAO {
+public class AnuncioDAO implements IAnuncioDAO{
 
     public JsonArray obtenerListaNovedadJSON() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
