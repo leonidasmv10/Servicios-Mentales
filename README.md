@@ -18,12 +18,14 @@ _Proyecto realizado en el curso de Soluciones Web y Aplicaciones Distribuidas_
 
 ## Construido con 🛠️
 
-* Java, Javascript, SQL, Ajax - Lenguajes de programación
-* HTML - Lenguaje de maquetado
+* Java, Javascript, SQL, Ajax y JQuery - Lenguajes de programación
+* HTML, CSS - Lenguaje de maquetado
 * JavaServer Pages (JSP)
 * [Netbeans 8.2](https://www.oracle.com/technetwork/java/javase/downloads/jdk-netbeans-jsp-3413139-esa.html) - IDE
 * [MySQL Workbench](https://www.mysql.com/products/workbench/) - Base de datos
 * [Gson Java](https://github.com/google/gson) - API que se utiliza para convertir objetos Java a JSON
+* [Boostrap](https://getbootstrap.com) - Framework front-end
+* [DataTables](https://datatables.net/examples/index) - Extensión de jQuery que nos permite pintar tablas con paginado, búsqueda, ordenar por columnas, etc.
 
 ## Autores ✒️
 
